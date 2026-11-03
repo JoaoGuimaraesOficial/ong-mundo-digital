@@ -1,68 +1,473 @@
-/* Configuração geral */
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #f5f7fa;
   color: #333;
+  line-height: 1.6;
 }
 
-/* Header */
-.navbar {
+a {
+  text-decoration: none;
+  color: #1e5a91;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #f4a261;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+/* =========================================
+   CABEÇALHO / MENU
+========================================= */
+
+header {
   background-color: #1e3a5f;
   color: white;
-  padding: 20px;
+  padding: 20px 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 
   opacity: 0;
   transform: translateY(-20px);
   transition: all 0.6s ease;
 }
 
-.navbar.visible {
+header.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.navbar h1 {
-  margin-bottom: 15px;
+header > a {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.navbar nav {
+header nav ul {
   display: flex;
   gap: 20px;
+  list-style: none;
+  flex-wrap: wrap;
 }
 
-.navbar a {
+header nav a {
   color: white;
-  text-decoration: none;
+  font-size: 15px;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+header nav a:hover {
+  color: #f4a261;
 }
+
+header > a:last-child {
+  background-color: #f4a261;
+  color: #1e3a5f;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+header > a:last-child:hover {
+  background-color: #fff;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
 
 main {
   min-height: 70vh;
-  padding: 30px;
+  padding: 30px 5%;
 }
 
-/* Footer */
-.footer {
+section {
+  padding: 70px 20px;
+  margin-bottom: 20px;
+}
+
+section h2 {
+  color: #1e3a5f;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+section p {
+  margin-bottom: 15px;
+}
+
+/* =========================================
+   INÍCIO
+========================================= */
+
+#inicio {
+  background-color: #e8f1fa;
+  border-radius: 12px;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+#inicio > p:first-child {
+  color: #1e5a91;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#inicio h1 {
+  color: #1e3a5f;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+#inicio img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 35px auto 0;
+}
+
+#inicio a {
+  display: inline-block;
+  background-color: #1e3a5f;
+  color: white;
+  padding: 12px 22px;
+  margin: 10px 5px;
+  border-radius: 6px;
+}
+
+#inicio a:hover {
+  background-color: #f4a261;
+  color: #1e3a5f;
+}
+
+/* =========================================
+   SOBRE NÓS
+========================================= */
+
+#sobre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+#sobre img {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+#sobre h2,
+#sobre p,
+#sobre ul {
+  flex: 1 1 300px;
+}
+
+#sobre ul {
+  color: #1e5a91;
+  font-weight: bold;
+}
+
+/* =========================================
+   CURSOS
+========================================= */
+
+#cursos {
+  text-align: center;
+}
+
+#cursos article {
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  width: 30%;
+  min-width: 240px;
+  padding: 30px 20px;
+  margin: 15px 1%;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#cursos article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#cursos article h3 {
+  color: #1e3a5f;
+  margin-bottom: 15px;
+}
+
+#cursos article a {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #1e3a5f;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+}
+
+#cursos article a:hover {
+  background-color: #f4a261;
+  color: #1e3a5f;
+}
+
+/* =========================================
+   VOLUNTÁRIOS
+========================================= */
+
+#voluntarios {
   background-color: #1e3a5f;
   color: white;
   text-align: center;
-  padding: 25px;
-
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  border-radius: 12px;
 }
 
-.footer.visible {
-  opacity: 1;
-  transform: translateY(0);
+#voluntarios h2 {
+  color: white;
+}
+
+#voluntarios a {
+  display: inline-block;
+  background-color: #f4a261;
+  color: #1e3a5f;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+#voluntarios a:hover {
+  background-color: white;
+}
+
+/* =========================================
+   COMO AJUDAR
+========================================= */
+
+#como-ajudar {
+  background-color: #e8f1fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#como-ajudar ul {
+  display: inline-block;
+  text-align: left;
+  margin-top: 15px;
+}
+
+#como-ajudar li {
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   CONTATO
+========================================= */
+
+#contato {
+  background-color: white;
+  border-radius: 12px;
+  padding: 50px 30px;
+}
+
+#contato address {
+  font-style: normal;
+  margin: 25px 0;
+}
+
+#contato address a {
+  color: #1e5a91;
+  font-weight: bold;
+}
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+form {
+  max-width: 600px;
+  margin: 30px auto 0;
+}
+
+form p {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  color: #1e3a5f;
+  margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  background-color: #f9f9f9;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #1e5a91;
+  box-shadow: 0 0 5px rgba(30, 90, 145, 0.3);
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  background-color: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #f4a261;
+  color: #1e3a5f;
+}
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+footer {
+  background-color: #1e3a5f;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: #f4a261;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  margin: 15px 0;
+}
+
+footer p {
+  margin-top: 10px;
+}
+
+/* =========================================
+   RESPONSIVIDADE - TABLETS E CELULARES
+========================================= */
+
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header nav ul {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  section {
+    padding: 45px 15px;
+  }
+
+  #inicio {
+    padding: 50px 20px;
+  }
+
+  #inicio h1 {
+    font-size: 30px;
+  }
+
+  #sobre {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #sobre img {
+    max-width: 100%;
+  }
+
+  #cursos article {
+    width: 100%;
+    margin: 12px 0;
+  }
+
+  section h2 {
+    font-size: 25px;
+  }
+
+  #contato {
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #inicio h1 {
+    font-size: 26px;
+  }
+
+  #inicio a {
+    display: block;
+  }
+
+  section h2 {
+    font-size: 22px;
+  }
+
+  footer {
+    padding: 25px 15px;
+  }
 }

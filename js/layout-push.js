@@ -1,45 +1,83 @@
-// Carrega um componente HTML
-async function include(arquivo, elemento) {
-  const resposta = await fetch(arquivo);
-  const conteudo = await resposta.text();
 
-  document.querySelector(elemento).innerHTML = conteudo;
+console.log("layout-push.js carregado!");
 
-  return document.querySelector(elemento);
-}
-
-// Carrega o Header e o Footer
 window.addEventListener("DOMContentLoaded", async () => {
-  const header = await include("../layout/header.html", "#header");
-  const footer = await include("../layout/footer.html", "#footer");
 
-  // Animação do Header
-  const navbar = header.querySelector(".navbar");
+  // Identifica a pasta principal do projeto
+  const script = document.querySelector(
+    'script[src*="layout-push.js"]'
+  );
 
-  if (navbar) {
-    requestAnimationFrame(() => {
-      navbar.classList.add("visible");
-    });
+  const pastaProjeto = new URL("../", script.src);
+
+  // Função responsável por carregar os arquivos HTML
+  async function carregar(caminho, seletor) {
+    const url = new URL(caminho, pastaProjeto);
+
+    const resposta = await fetch(url);
+
+    if (!resposta.ok) {
+      throw new Error("Erro ao carregar: " + url.href);
+    }
+
+    const html = await resposta.text();
+
+    const elemento = document.querySelector(seletor);
+
+    if (!elemento) {
+      throw new Error("Elemento não encontrado: " + seletor);
+    }
+
+    elemento.innerHTML = html;
+
+    return elemento;
   }
 
-  // Animação do Footer
-  const footerElement = footer.querySelector(".footer");
+  try {
 
-  if (footerElement) {
-    const observer = new IntersectionObserver(
-      (entries) => {
+    // Carrega o Header
+    const header = await carregar(
+      "layout/header.html",
+      "#header"
+    );
+
+    // Ativa a animação do Header
+    const navbar = header.querySelector(".navbar");
+
+    if (navbar) {
+      requestAnimationFrame(() => {
+        navbar.classList.add("visible");
+      });
+    }
+
+    // Carrega o Footer
+    const footer = await carregar(
+      "layout/footer.html",
+      "#footer"
+    );
+
+    // Ativa a animação do Footer quando aparecer na tela
+    const footerElement = footer.querySelector(".footer");
+
+    if (footerElement) {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
             observer.unobserve(entry.target);
           }
         });
-      },
-      {
-        threshold: 0.1,
-      },
-    );
+      }, {
+        threshold: 0.1
+      });
 
-    observer.observe(footerElement);
+      observer.observe(footerElement);
+    }
+
+    console.log("Header e Footer carregados!");
+
+  } catch (erro) {
+    console.error("Erro ao carregar layout:", erro);
   }
+
 });

@@ -1,20 +1,180 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ONG Mundo Digital</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/layout-push.js"></script>
-  </head>
+<!DOCTYPE html>
+<!-- Declara que o arquivo é HTML5 -->
+<html lang="pt-BR">
+<!-- lang: idioma da página (português do Brasil) -->
+<head>
+  <meta charset="UTF-8">
+  <!-- UTF-8: permite acentos e cedilha -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- viewport: ajusta a página à largura do celular -->
+  <title>Conecta Futuro | ONG de Inclusão Digital</title>
+  <!-- title: texto da aba do navegador -->
+  <meta name="description" content="ONG que leva educação e inclusão digital para todos, com cursos gratuitos de tecnologia.">
+  <!-- description: texto que aparece no Google -->
 
-  <body>
-    <div id="header"></div>
+  <!-- link rel="stylesheet": carrega o arquivo de estilos (cores, layout, fontes) -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
 
-    <main>
-      <h1>pagina inicial</h1>
-    </main>
+<!-- ============ CABEÇALHO ============ -->
+<!-- <header>: topo do site. <nav>: menu de navegação. -->
+<header>
+  <a href="#inicio"><strong>Conecta Futuro</strong></a>
 
-    <div id="footer"></div>
-  </body>
+  <nav>
+    <!-- href="#id" rola a página até o elemento com aquele id -->
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre nós</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#voluntarios">Voluntários</a></li>
+      <li><a href="#como-ajudar">Como ajudar</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <a href="#como-ajudar">Doe agora</a>
+</header>
+
+<!-- <main>: conteúdo principal da página -->
+<main>
+
+  <!-- ============ INÍCIO ============ -->
+  <!-- <section>: bloco de conteúdo. O id permite o link do menu chegar aqui. -->
+  <section id="inicio">
+    <p>ONG de Inclusão Digital</p>
+    <h1>Conectando pessoas ao futuro!</h1>
+    <!-- h1: título principal. Só deve existir um por página. -->
+    <p>Uma ONG dedicada a levar educação e inclusão digital para todos, através da tecnologia.</p>
+    <p>
+      <a href="#cursos">Conheça nossos cursos</a>
+      <a href="#sobre">Sobre nós</a>
+    </p>
+    <!-- Troque o arquivo abaixo pela imagem do notebook. alt descreve a imagem para leitores de tela. -->
+    <img src="notebook.png" alt="Notebook com símbolo de código na tela" width="460">
+  </section>
+
+  <!-- ============ SOBRE NÓS ============ -->
+  <section id="sobre">
+    <img src="alunos.jpg" alt="Jovens estudando juntos em uma sala de aula" width="480">
+
+    <h2>Mais que tecnologia, oportunidades para todos.</h2>
+    <!-- h2: título de seção, abaixo do h1 na hierarquia -->
+    <p>Somos uma organização sem fins lucrativos que acredita no poder da tecnologia para transformar vidas. Nosso objetivo é promover a inclusão digital, oferecendo cursos gratuitos e apoio para quem mais precisa.</p>
+    <p><a href="#contato">Saiba mais</a></p>
+
+    <!-- ul: lista sem ordem; cada li é um item -->
+    <ul>
+      <li>Educação de qualidade</li>
+      <li>Inclusão social</li>
+      <li>Um futuro melhor</li>
+    </ul>
+  </section>
+
+  <!-- ============ CURSOS ============ -->
+  <section id="cursos">
+    <h2>Nossos cursos gratuitos</h2>
+    <p>Aprenda, evolua e conquiste novas oportunidades.</p>
+
+    <!-- <article>: conteúdo independente, aqui cada curso -->
+    <article>
+      <h3>Informática Básica</h3>
+      <p>Aprenda a usar computadores e navegar na internet.</p>
+      <a href="#contato">Quero saber mais</a>
+    </article>
+
+    <article>
+      <h3>Introdução à Programação</h3>
+      <p>Conheça a lógica de programação e dê os primeiros passos no código.</p>
+      <a href="#contato">Quero saber mais</a>
+    </article>
+
+    <article>
+      <h3>Desenvolvimento Web</h3>
+      <p>Aprenda HTML, CSS e JavaScript para criar sites.</p>
+      <a href="#contato">Quero saber mais</a>
+    </article>
+  </section>
+
+  <!-- ============ VOLUNTÁRIOS ============ -->
+  <section id="voluntarios">
+    <h2>Seja um voluntário: faça parte dessa mudança!</h2>
+    <p>Compartilhe seu conhecimento, ajude nossa causa e inspire outras pessoas.</p>
+    <p><a href="#contato">Quero ser voluntário</a></p>
+  </section>
+
+  <!-- ============ COMO AJUDAR ============ -->
+  <section id="como-ajudar">
+    <h2>Como você pode ajudar?</h2>
+    <p>Sua contribuição faz a diferença!</p>
+    <ul>
+      <li>Doe equipamentos ou recursos</li>
+      <li>Contribua com materiais de estudo</li>
+      <li>Divulgue nosso projeto</li>
+      <li>Apoie nossas iniciativas</li>
+    </ul>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section id="contato">
+    <h2>Entre em contato</h2>
+    <p>Tem alguma dúvida ou deseja participar dos nossos projetos? Envie uma mensagem para nós!</p>
+
+    <!-- <address>: informações de contato -->
+    <address>
+      <!-- mailto: abre o programa de e-mail. tel: liga no celular. -->
+      <p>E-mail: <a href="mailto:contato@conectafuturo.org">contato@conectafuturo.org</a></p>
+      <p>Telefone: <a href="tel:+5511987654321">(11) 98765-4321</a></p>
+      <p>Endereço: Rua da Tecnologia, 123 – São Paulo/SP</p>
+    </address>
+
+    <!-- <form>: formulário. action é o endereço que recebe os dados (troque pelo seu serviço, ex.: Formspree). -->
+    <form action="#" method="post">
+      <!-- label + for ligam o texto ao campo com o mesmo id. required impede enviar vazio. -->
+      <p>
+        <label for="nome">Nome completo</label><br>
+        <input id="nome" name="nome" type="text" autocomplete="name" required>
+      </p>
+      <p>
+        <label for="email">E-mail</label><br>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </p>
+      <p>
+        <label for="assunto">Assunto</label><br>
+        <select id="assunto" name="assunto" required>
+          <option value="">Escolha um assunto</option>
+          <option>Quero fazer um curso</option>
+          <option>Quero ser voluntário</option>
+          <option>Quero doar</option>
+          <option>Outro assunto</option>
+        </select>
+      </p>
+      <p>
+        <label for="mensagem">Sua mensagem</label><br>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+      </p>
+      <button type="submit">Enviar mensagem</button>
+    </form>
+  </section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer>
+  <strong>Conecta Futuro</strong>
+  <p>Tecnologia. Educação. Oportunidades.</p>
+
+  <!-- Troque # pelos links reais das redes sociais -->
+  <ul>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">LinkedIn</a></li>
+  </ul>
+
+  <p> 2026 Conecta Futuro. Todos os direitos reservados.</p>
+</footer>
+
+<script src="js/layout-push.js"></script>
+
+</body>
 </html>

@@ -1,83 +1,79 @@
+// Carrega um arquivo HTML dentro de um elemento da página
+async function include(arquivo, seletor) {
+  const elemento = document.querySelector(seletor);
 
-console.log("layout-push.js carregado!");
-
-window.addEventListener("DOMContentLoaded", async () => {
-
-  // Identifica a pasta principal do projeto
-  const script = document.querySelector(
-    'script[src*="layout-push.js"]'
-  );
-
-  const pastaProjeto = new URL("../", script.src);
-
-  // Função responsável por carregar os arquivos HTML
-  async function carregar(caminho, seletor) {
-    const url = new URL(caminho, pastaProjeto);
-
-    const resposta = await fetch(url);
-
-    if (!resposta.ok) {
-      throw new Error("Erro ao carregar: " + url.href);
-    }
-
-    const html = await resposta.text();
-
-    const elemento = document.querySelector(seletor);
-
-    if (!elemento) {
-      throw new Error("Elemento não encontrado: " + seletor);
-    }
-
-    elemento.innerHTML = html;
-
-    return elemento;
-  }
+  if (!elemento) return null;
 
   try {
+    const resposta = await fetch(arquivo);
 
-    // Carrega o Header
-    const header = await carregar(
-      "layout/header.html",
-      "#header"
-    );
-
-    // Ativa a animação do Header
-    const navbar = header.querySelector(".navbar");
-
-    if (navbar) {
-      requestAnimationFrame(() => {
-        navbar.classList.add("visible");
-      });
+    if (!resposta.ok) {
+      throw new Error(`Erro ao carregar ${arquivo}`);
     }
 
-    // Carrega o Footer
-    const footer = await carregar(
-      "layout/footer.html",
-      "#footer"
-    );
-
-    // Ativa a animação do Footer quando aparecer na tela
-    const footerElement = footer.querySelector(".footer");
-
-    if (footerElement) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
-
-      observer.observe(footerElement);
-    }
-
-    console.log("Header e Footer carregados!");
-
+    elemento.innerHTML = await resposta.text();
+    return elemento;
   } catch (erro) {
-    console.error("Erro ao carregar layout:", erro);
+    console.error(erro);
+    return null;
+  }
+}
+
+// Carrega o header e o footer
+window.addEventListener("DOMContentLoaded", async () => {
+  const estaEmContent = window.location.pathname.includes("/content/");
+  const basePath = estaEmContent ? "../" : "./";
+
+  const header = await include(`${basePath}layout/header.html`, "#header");
+
+  const footer = await include(`${basePath}layout/footer.html`, "#footer");
+
+  const paginas = {
+    index: "index.html",
+    sobre: "content/sobre.html",
+    projetos: "content/projetos.html",
+    contato: "content/contato.html",
+  };
+
+  // Ajusta os links do header e do footer
+  [header, footer].forEach((componente) => {
+    if (!componente) return;
+
+    componente.querySelectorAll("[data-page]").forEach((link) => {
+      const pagina = link.dataset.page;
+
+      if (paginas[pagina]) {
+        link.href = basePath + paginas[pagina];
+      }
+    });
+
+    componente.querySelectorAll("[data-section]").forEach((link) => {
+      const secao = link.dataset.section;
+
+      if (secao === "como-ajudar") {
+        link.href = `${basePath}content/contato.html#como-ajudar`;
+      } else {
+        link.href = `${basePath}index.html#${secao}`;
+      }
+    });
+  });
+
+  // Atualiza o ano do footer
+  const ano = footer?.querySelector("#footer-year");
+
+  if (ano) {
+    ano.textContent = new Date().getFullYear();
   }
 
+  // Anima a entrada do header
+  const navbar = header?.querySelector(".navbar");
+
+  if (navbar) {
+    requestAnimationFrame(() => {
+      navbar.classList.add("visible");
+    });
+  }
+
+  // Avisa que os componentes foram carregados
+  document.dispatchEvent(new Event("layoutLoaded"));
 });

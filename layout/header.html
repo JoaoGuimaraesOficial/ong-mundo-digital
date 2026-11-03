@@ -1,17 +1,37 @@
-<header class="navbar">
-  <a href="#inicio" class="brand">
-    <img src="../img/Conecta Futuro.png" alt="Logo Conecta Futuro"> <!-- apenas facilitando a criação da logo -->
-    <strong>Conecta Futuro</strong>
-  </a>
 
-  <nav>
-    <ul>
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="/content/sobre.html">Sobre nós</a></li>
-      <li><a href="#voluntarios">Projetos</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
+<header class="navbar" id="site-header">
 
-  <a href="#como-ajudar" class="btn-doar">Doe agora</a>
+    <!-- Logo e nome da ONG -->
+    <a href="#" class="brand" data-page="index" aria-label="Conecta Futuro - Página inicial">
+        <strong>Conecta Futuro</strong>
+    </a>
+
+    <!-- Botão do menu mobile -->
+    <button
+        class="nav-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        type="button"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Menu de navegação -->
+    <nav id="primary-nav" class="nav-menu" aria-label="Navegação principal">
+        <ul>
+            <li><a href="#" data-page="index">Início</a></li>
+            <li><a href="#" data-page="sobre">Sobre</a></li>
+            <li><a href="#" data-page="projetos">Projetos</a></li>
+            <li><a href="#" data-page="contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Botão de doação -->
+    <a href="#" class="btn-doar" data-section="como-ajudar">
+        Doe agora
+    </a>
+
 </header>

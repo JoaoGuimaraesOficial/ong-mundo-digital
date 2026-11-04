@@ -1,109 +1,184 @@
-<!-- Declara que o documento usa HTML5 -->
+
 <!doctype html>
-<!-- Idioma da página: português do Brasil (ajuda leitores de tela e buscadores) -->
 <html lang="pt-BR">
-  <head>
-    <!-- Codificação de caracteres: permite acentos e símbolos -->
-    <meta charset="UTF-8" />
-    <!-- Faz a página se adaptar à largura da tela (responsividade no celular) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Descrição que aparece nos resultados de busca (SEO) -->
-    <meta
-      name="description"
-      content="Conecta Futuro: iniciativa de inclusão digital e acesso à tecnologia."
-    />
-    <!-- Título que aparece na aba do navegador -->
-    <title>Conecta Futuro | ONG de Inclusão Digital</title>
-    <!-- Liga o arquivo de estilos (CSS) -->
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- Script que carrega o header e o footer; "defer" executa só depois de o HTML carregar -->
-    <script src="js/layout-push.js" defer></script>
-    <!-- Script das animações de entrada e do menu mobile -->
-    <script src="js/animation.js" defer></script>
-  </head>
 
-  <body>
-    <!-- Espaço vazio onde o layout-push.js injeta o cabeçalho (layout/header.html) -->
-    <div id="header"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Conteúdo principal da página -->
-    <main>
-      <!-- Seção de abertura (hero) da página inicial -->
-      <section id="inicio">
-        <p>ONG de Inclusão Digital</p>
-        <!-- Título principal da página -->
-        <h1>Conectando pessoas ao futuro!</h1>
-        <p>
-          Promovemos o acesso à tecnologia e ao conhecimento digital, ajudando
-          pessoas a desenvolver novas habilidades e oportunidades.
-        </p>
-        <!-- Grupo de botões de chamada para ação -->
-        <div class="botoes">
-          <!-- Link âncora: rola a página até a seção com id="cursos" -->
-          <a href="#cursos" class="btn">Conheça nossos cursos</a>
-          <!-- Link para a página "Sobre" -->
-          <a href="content/sobre.html" class="btn">Conheça nossa iniciativa!</a>
-        </div>
-      </section>
+  <meta
+    name="description"
+    content="Conecta Futuro: iniciativa de inclusão digital e acesso à tecnologia."
+  />
 
-      <!-- Seção que apresenta a iniciativa -->
-      <section id="sobre">
-        <h2>Mais que tecnologia, oportunidades para todos.</h2>
-        <p>
-          A Conecta Futuro busca aproximar pessoas do mundo digital, oferecendo
-          orientação e oportunidades de aprendizado.
-        </p>
-        <!-- Lista de valores (estilizada como "chips" no CSS) -->
-        <ul>
-          <li>Inclusão digital e acessibilidade.</li>
-          <li>Aprendizado de novas habilidades.</li>
-          <li>Mais autonomia no uso da tecnologia.</li>
-        </ul>
-        <a href="content/sobre.html" class="btn">Conheça nossa iniciativa!</a>
-      </section>
+  <title>Conecta Futuro | ONG de Inclusão Digital</title>
 
-      <!-- Seção com os cursos oferecidos -->
-      <section id="cursos">
-        <h2>Conheça nossos cursos</h2>
-        <p>
-          Aprenda no seu ritmo e desenvolva habilidades para o mundo digital.
-        </p>
-        <!-- Container que organiza os cards lado a lado (flexbox) -->
-        <div class="cursos-container">
-          <!-- Cada <article> é um card de curso independente -->
-          <article class="card-curso">
-            <h3>Informática Básica</h3>
-            <p>Aprenda a utilizar o computador e seus principais recursos.</p>
-            <a href="content/contato.html">Saiba mais</a>
-          </article>
-          <article class="card-curso">
-            <h3>Introdução à Programação</h3>
-            <p>Conheça os fundamentos da programação e da lógica.</p>
-            <a href="content/contato.html">Saiba mais</a>
-          </article>
-          <article class="card-curso">
-            <h3>Desenvolvimento Web</h3>
-            <p>Tenha contato com a criação de páginas para a internet.</p>
-            <a href="content/contato.html">Saiba mais</a>
-          </article>
-        </div>
-      </section>
+  <link rel="stylesheet" href="css/style.css" />
 
-      <!-- chamada final convidando para a página de contato -->
-      <section id="chamada-contato">
-        <!-- Caixa azul de destaque (CTA = call to action) -->
-        <div class="cta-contato">
-          <h2>Quer participar ou ajudar a transformar vidas?</h2>
+  <script src="js/layout-push.js" defer></script>
+  <script src="js/animation.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Cabeçalho carregado pelo JavaScript -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- APRESENTAÇÃO PRINCIPAL -->
+    <section id="inicio">
+
+      <div class="inicio-container">
+
+        <!-- Conteúdo textual -->
+        <div class="inicio-conteudo">
+
+          <p>ONG de Inclusão Digital</p>
+
+          <h1>Conectando pessoas ao futuro!</h1>
+
           <p>
-            Você pode ser aluno, voluntário ou doador. Seja qual for o seu jeito
-            de contribuir, existe um lugar para você na Conecta Futuro.
+            Promovemos o acesso à tecnologia e ao conhecimento digital,
+            ajudando pessoas a desenvolver novas habilidades e oportunidades.
           </p>
-          <a href="content/contato.html" class="btn">Fale com a gente</a>
-        </div>
-      </section>
-    </main>
 
-    <!-- Espaço onde o layout-push.js injeta o rodapé (layout/footer.html) -->
-    <div id="footer"></div>
-  </body>
+          <div class="botoes">
+
+            <a href="#cursos" class="btn">
+              Conheça nossos cursos
+            </a>
+
+            <a href="content/sobre.html" class="btn">
+              Conheça nossa iniciativa!
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- Imagem principal -->
+        <div class="inicio-imagem">
+
+          <img
+            src="assets/imagem-inclusao-digital.jpg"
+            alt="Representação da inclusão digital e do acesso à tecnologia"
+          />
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- APRESENTAÇÃO DA INICIATIVA -->
+    <section id="sobre">
+
+      <h2>Mais que tecnologia, oportunidades para todos.</h2>
+
+      <p>
+        A Conecta Futuro busca aproximar pessoas do mundo digital,
+        oferecendo orientação e oportunidades de aprendizado.
+      </p>
+
+      <ul>
+
+        <li>Inclusão digital e acessibilidade.</li>
+
+        <li>Aprendizado de novas habilidades.</li>
+
+        <li>Mais autonomia no uso da tecnologia.</li>
+
+      </ul>
+
+      <a href="content/sobre.html" class="btn">
+        Conheça nossa iniciativa!
+      </a>
+
+    </section>
+
+
+    <!-- CURSOS -->
+    <section id="cursos">
+
+      <h2>Conheça nossos cursos</h2>
+
+      <p>
+        Aprenda no seu ritmo e desenvolva habilidades para o mundo digital.
+      </p>
+
+      <div class="cursos-container">
+
+        <article class="card-curso">
+
+          <h3>Informática Básica</h3>
+
+          <p>
+            Aprenda a utilizar o computador e seus principais recursos.
+          </p>
+
+          <a href="content/contato.html">Saiba mais</a>
+
+        </article>
+
+
+        <article class="card-curso">
+
+          <h3>Introdução à Programação</h3>
+
+          <p>
+            Conheça os fundamentos da programação e da lógica.
+          </p>
+
+          <a href="content/contato.html">Saiba mais</a>
+
+        </article>
+
+
+        <article class="card-curso">
+
+          <h3>Desenvolvimento Web</h3>
+
+          <p>
+            Tenha contato com a criação de páginas para a internet.
+          </p>
+
+          <a href="content/contato.html">Saiba mais</a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CHAMADA PARA PARTICIPAÇÃO -->
+    <section id="chamada-contato">
+
+      <div class="cta-contato">
+
+        <h2>Quer participar ou ajudar a transformar vidas?</h2>
+
+        <p>
+          Você pode ser aluno, voluntário ou doador.
+          Seja qual for o seu jeito de contribuir,
+          existe um lugar para você na Conecta Futuro.
+        </p>
+
+        <a href="content/contato.html" class="btn">
+          Fale com a gente
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Rodapé carregado pelo JavaScript -->
+  <div id="footer"></div>
+
+</body>
+
 </html>

@@ -1,25 +1,38 @@
+<!-- Declara que o documento usa HTML5 -->
 <!doctype html>
+<!-- Idioma da página -->
 <html lang="pt-BR">
   <head>
+    <!-- Codificação de caracteres -->
     <meta charset="UTF-8" />
+    <!-- Responsividade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Descrição para buscadores -->
     <meta
       name="description"
       content="Conheça a história, a missão e o público atendido pela ONG Conecta Futuro."
     />
     <title>Sobre - Conecta Futuro</title>
+    <!-- Caminhos com "../" porque a página está na pasta /content -->
     <link rel="stylesheet" href="../css/style.css" />
+    <!-- Injeta header e footer -->
     <script src="../js/layout-push.js" defer></script>
+    <!-- Animações e menu mobile -->
     <script src="../js/animation.js" defer></script>
+    <!-- Controla o botão que mostra/esconde o painel de ajuda -->
     <script src="../js/interacao.js" defer></script>
   </head>
   <body>
+    <!-- Cabeçalho inserido via JS -->
     <div id="header"></div>
 
     <main>
+      <!-- Container flex: texto à esquerda, imagem à direita -->
       <div class="container-sobre">
+        <!-- Cartão de texto -->
         <div class="card-sobre">
           <h1>Sobre Nós</h1>
+          <!-- Parágrafos de apresentação da ONG -->
           <p class="sobretexto">
             A Conecta Futuro é uma ONG educacional que tem como missão promover
             a inclusão digital e ampliar oportunidades por meio da tecnologia e
@@ -40,6 +53,8 @@
             pessoas para os desafios de um mundo cada vez mais conectado.
           </p>
 
+          <!-- Botão que mostra/oculta o painel abaixo.
+               aria-expanded e aria-controls informam o estado e o alvo a leitores de tela -->
           <button
             id="btn-info"
             class="btn"
@@ -61,7 +76,9 @@
           </div>
         </div>
 
+        <!-- Coluna da imagem -->
         <div class="imagem-sobre">
+          <!-- "alt" descreve a imagem; width define a largura sugerida -->
           <img
             src="../assets/professoraensinando.jpg"
             alt="Jovens estudando juntos em uma sala de aula"
@@ -71,6 +88,7 @@
       </div>
     </main>
 
+    <!-- Rodapé inserido via JS -->
     <div id="footer"></div>
   </body>
 </html>

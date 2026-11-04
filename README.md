@@ -2,6 +2,17 @@
 
 O **Conecta Futuro** é um site institucional desenvolvido como projeto acadêmico para uma ONG fictícia que trabalha com inclusão digital, educação e participação comunitária. A proposta é apresentar como a tecnologia pode ampliar oportunidades e facilitar o acesso ao conhecimento.
 
+## RGM dos integrantes do grupo
+
+| Integrante | RGM |
+|---|---|
+| Augusto de Almeida Guelere | 48832588 |
+| Felipe Rodrigues da Silva | 47868384 |
+| Gabriel Alves Rodrigues | 47818191 |
+| João Victor Guimarães Moura | 48298549 |
+| Lucas Freitas de Oliveira | 48587885 |
+| Matheus Faustino da Silva | 47854928 |
+| Otavio Estevam Ventura Cristiano | 48763390 |
 ## Objetivo
 
 O projeto tem como objetivo apresentar a organização, divulgar seus cursos e iniciativas e mostrar como a comunidade pode participar de suas atividades. O site foi desenvolvido com foco em uma navegação simples, informações organizadas e adaptação para diferentes dispositivos.

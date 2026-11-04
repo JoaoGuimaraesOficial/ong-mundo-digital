@@ -38,6 +38,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     sobre: "content/sobre.html",
     projetos: "content/projetos.html",
     contato: "content/contato.html",
+    creditos: "content/creditos.html",
   };
 
   // Repete o mesmo ajuste de links para o header e para o footer

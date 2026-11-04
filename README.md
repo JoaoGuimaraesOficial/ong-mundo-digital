@@ -1,89 +1,112 @@
 # Conecta Futuro
 
-Site institucional da ONG fictícia **Conecta Futuro**, desenvolvido como protótipo acadêmico sobre inclusão digital, educação e participação comunitária.
+O **Conecta Futuro** é um site institucional desenvolvido como projeto acadêmico para uma ONG fictícia que trabalha com inclusão digital, educação e participação comunitária. A proposta é apresentar como a tecnologia pode ampliar oportunidades e facilitar o acesso ao conhecimento.
 
 ## Objetivo
 
-Apresentar a iniciativa, seus cursos e projetos de forma acessível e responsiva, incentivando a participação de alunos, voluntários e doadores.
+O projeto tem como objetivo apresentar a organização, divulgar seus cursos e iniciativas e mostrar como a comunidade pode participar de suas atividades. O site foi desenvolvido com foco em uma navegação simples, informações organizadas e adaptação para diferentes dispositivos.
 
-## Páginas
+## Páginas do site
 
-- **Início** (`index.html`): apresentação da ONG, cursos e chamada para contato.
-- **Sobre** (`content/sobre.html`): missão, público atendido e painel interativo sobre como a ONG pode ajudar.
-- **Projetos** (`content/projetos.html`): três projetos com cards, missões expansíveis e formas de participação da comunidade.
-- **Contato** (`content/contato.html`): formulário com validação em JavaScript e área de voluntariado.
-- **Créditos e fontes** (`content/creditos.html`): registro dos materiais utilizados e observações de licença/autoria.
+O site é composto por quatro páginas:
 
-## Funcionalidades
+- **Início (`index.html`):** apresenta a Conecta Futuro, sua proposta de atuação, os cursos oferecidos e chamadas para conhecer melhor a organização.
+- **Sobre (`content/sobre.html`):** apresenta a missão da ONG, seu público-alvo, seus objetivos e um painel interativo com informações adicionais.
+- **Projetos (`content/projetos.html`):** reúne três iniciativas da organização, cada uma com descrição, imagem, informações sobre sua missão e formas de participação da comunidade.
+- **Contato (`content/contato.html`):** disponibiliza um formulário para mensagens e uma área com orientações sobre voluntariado e participação nos projetos.
 
-- Header e footer reutilizados nas páginas por meio de `fetch`.
-- Menu responsivo para telas pequenas.
-- Cards de projetos com botão para abrir e fechar a missão de cada iniciativa.
-- Indicação de como a comunidade pode apoiar cada projeto.
-- Validação de nome, e-mail, assunto e mensagem no formulário.
-- Mensagem explícita de que o envio do formulário é simulado.
-- Animações de entrada com suporte a `prefers-reduced-motion`.
-- Layout responsivo para aproximadamente 390 px e 1280 px.
+## Funcionalidades desenvolvidas
 
-## Tecnologias
+Para tornar o site mais organizado e interativo, foram implementados os seguintes recursos:
 
-- HTML5 semântico
-- CSS3
-- JavaScript nativo (ES6+)
-- Imagens locais na pasta `assets/`
+- **Header e footer compartilhados:** os mesmos elementos de navegação e rodapé são carregados nas páginas por meio de JavaScript e `fetch`, evitando a repetição de código.
+- **Menu responsivo:** navegação adaptada para dispositivos menores, com botão hambúrguer para abrir e fechar o menu.
+- **Painel interativo na página Sobre:** permite mostrar e ocultar informações adicionais sobre a atuação da ONG.
+- **Projetos expansíveis:** cada iniciativa possui um botão que permite visualizar ou ocultar informações sobre sua missão.
+- **Formulário com validação:** verifica o preenchimento do nome, e-mail, assunto e mensagem antes de apresentar o retorno ao usuário.
+- **Confirmação de envio simulado:** apresenta uma mensagem após o preenchimento correto, deixando claro que o formulário é demonstrativo.
+- **Animações de entrada:** elementos da página aparecem gradualmente durante a navegação, respeitando a configuração de preferência por movimentos reduzidos do dispositivo.
+- **Layout responsivo:** organização dos elementos para proporcionar uma boa visualização em telas de diferentes tamanhos.
 
-Não há dependências ou bibliotecas externas obrigatórias.
+## Tecnologias utilizadas
 
-## Como executar
+- **HTML5:** estruturação das páginas com elementos semânticos.
+- **CSS3:** estilização, organização dos componentes, Flexbox, animações e responsividade.
+- **JavaScript:** carregamento dos elementos compartilhados, controle das interações e validação do formulário.
+- **Imagens locais:** recursos visuais armazenados na pasta `assets/` e utilizados para complementar o conteúdo das páginas.
 
-Como o projeto carrega header e footer com `fetch`, ele deve ser aberto por um servidor local, e não diretamente pelo protocolo `file://`.
+Todo o desenvolvimento foi realizado com tecnologias nativas da web, sem utilização de frameworks ou bibliotecas externas obrigatórias.
 
-### Live Server no VS Code
+## Como executar o projeto
 
-1. Abra a pasta do projeto no VS Code.
+Para visualizar o site corretamente, é necessário utilizar um servidor local, pois o carregamento do header e do footer utiliza `fetch`.
+
+### Utilizando o Live Server no Visual Studio Code
+
+1. Abra a pasta do projeto no Visual Studio Code.
 2. Instale a extensão **Live Server**, caso ainda não esteja instalada.
-3. Clique com o botão direito em `index.html`.
-4. Selecione **Open with Live Server**.
-5. Acesse as páginas pelos links do menu.
+3. Abra o arquivo `index.html`.
+4. Clique com o botão direito no editor.
+5. Selecione **Open with Live Server**.
 
-### Outro servidor local
+O site será aberto no navegador e suas páginas poderão ser acessadas pelo menu de navegação.
 
-Também é possível executar, na raiz do projeto:
+### Utilizando Python
+
+Também é possível iniciar um servidor local pelo terminal, dentro da pasta principal do projeto:
 
 ```bash
-python3 -m http.server 5500
+py -m http.server 5500
 ```
 
-Depois, acesse <http://localhost:5500>.
+Depois, acesse:
 
-## Estrutura
+`http://localhost:5500`
+
+## Organização dos arquivos
+
+O projeto está organizado em pastas para separar as páginas, os estilos, os scripts, as imagens e os componentes compartilhados.
 
 ```text
-.
-├── assets/                 # Imagens e ícones locais
-├── content/                # Páginas internas
-├── css/style.css           # Estilos globais e responsivos
-├── js/                     # Layout, animações, formulário e interações
-├── layout/                 # Header e footer reutilizáveis
+ong-mundo-digital/
+│
+├── assets/
+│   └── Imagens utilizadas no site
+│
+├── content/
+│   ├── contato.html
+│   ├── projetos.html
+│   └── sobre.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   ├── animation.js
+│   ├── formulario.js
+│   ├── interacao.js
+│   └── layout-push.js
+│
+├── layout/
+│   ├── footer.html
+│   └── header.html
+│
 ├── index.html
-├── CREDITOS.md
 └── README.md
 ```
 
-## Formulário
+## Formulário de contato
 
-O formulário é apenas uma simulação acadêmica. A validação acontece no navegador e nenhum dado é enviado, armazenado ou coletado.
+O formulário foi desenvolvido para demonstrar a validação de dados utilizando JavaScript. Antes de apresentar a confirmação, o sistema verifica se os campos obrigatórios foram preenchidos corretamente.
 
-## Créditos e licença
+Como o projeto é um protótipo acadêmico, o envio é simulado no próprio navegador, sem integração com serviços externos de envio de mensagens.
 
-Consulte [`content/creditos.html`](content/creditos.html) e [`CREDITOS.md`](CREDITOS.md). A origem/licença de algumas imagens já existentes no repositório não foi registrada no histórico disponível; portanto, elas devem ser confirmadas antes de qualquer publicação comercial ou institucional.
+## Resultado do desenvolvimento
 
-## Checklist de revisão
+O Conecta Futuro reúne as quatro páginas institucionais propostas, com identidade visual consistente, navegação compartilhada, conteúdo organizado e recursos interativos.
 
-- [x] Header e footer carregados por Live Server.
-- [x] Cards de projetos com interação das missões.
-- [x] Participação da comunidade descrita em cada projeto.
-- [x] README criado.
-- [x] Página de créditos e fontes criada.
-- [x] Formulário com validação e aviso de simulação.
-- [ ] Confirmar autoria/licença de cada imagem antes da publicação real.
+O desenvolvimento contempla a utilização de HTML, CSS e JavaScript, incluindo manipulação do DOM, eventos, funções, validação de formulários, Flexbox e adaptação para diferentes tamanhos de tela.
+
+---
+
+**Conecta Futuro — Tecnologia e inclusão para todos.**

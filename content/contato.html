@@ -1,23 +1,35 @@
+<!-- Declara que o documento usa HTML5 -->
 <!doctype html>
+<!-- Idioma da página: português do Brasil -->
 <html lang="pt-BR">
   <head>
+    <!-- Codificação de caracteres (acentos) -->
     <meta charset="UTF-8" />
+    <!-- Responsividade: ajusta a página à largura do dispositivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Descrição para mecanismos de busca -->
     <meta
       name="description"
       content="Fale com a Conecta Futuro: dúvidas, voluntariado e doações."
     />
+    <!-- Título da aba do navegador -->
     <title>Contato - Conecta Futuro</title>
+    <!-- Esta página está dentro de /content, por isso os caminhos sobem uma pasta ("../") -->
     <link rel="stylesheet" href="../css/style.css" />
+    <!-- Carrega header e footer automaticamente -->
     <script src="../js/layout-push.js" defer></script>
+    <!-- Animações e menu mobile -->
     <script src="../js/animation.js" defer></script>
+    <!-- Validação do formulário de contato -->
     <script src="../js/formulario.js" defer></script>
   </head>
   <body>
+    <!-- Local onde o cabeçalho será inserido via JavaScript -->
     <div id="header"></div>
 
     <main>
       <section id="contato">
+        <!-- Container flex que coloca formulário e voluntariado lado a lado -->
         <div class="contato-flex">
           <!-- COLUNA ESQUERDA: FORMULÁRIO-->
           <div class="contato-form">
@@ -27,6 +39,7 @@
               uma mensagem!
             </p>
 
+            <!-- Dados de contato da ONG (fictícios, por ser um protótipo) -->
             <p><strong>E-mail:</strong> apenasilustracao@hotmail.com</p>
             <p><strong>Telefone:</strong> (00) 00000-0000</p>
             <p>
@@ -39,12 +52,18 @@
               apenas simulado: nenhum e-mail é enviado e nenhum dado é coletado.
             </p>
 
+            <!-- Formulário. "novalidate" desativa as mensagens padrão do navegador,
+                 pois a validação é feita pelo formulario.js -->
             <form id="form" novalidate>
+              <!-- "for" liga o rótulo ao campo com o mesmo id (acessibilidade) -->
               <label for="nome">Nome completo</label>
+              <!-- Campo de texto; exige no mínimo 3 caracteres -->
               <input id="nome" name="nome" type="text" minlength="3" required />
+              <!-- Área onde o JS mostra o erro deste campo -->
               <small class="erro" id="erro-nome"></small>
 
               <label for="email">E-mail</label>
+              <!-- type="email" faz o navegador checar o formato do e-mail -->
               <input id="email" name="email" type="email" required />
               <small class="erro" id="erro-email"></small>
 
@@ -53,6 +72,7 @@
               <small class="erro" id="erro-assunto"></small>
 
               <label for="msg">Mensagem</label>
+              <!-- Campo de texto longo com 4 linhas visíveis; mínimo de 10 caracteres -->
               <textarea
                 id="msg"
                 name="msg"
@@ -62,16 +82,20 @@
               ></textarea>
               <small class="erro" id="erro-msg"></small>
 
+              <!-- Botão que dispara o evento "submit" do formulário -->
               <button class="btn" type="submit">Enviar</button>
 
+              <!-- Mensagem final de sucesso/erro; role="status" avisa leitores de tela -->
               <p id="retorno" role="status"></p>
             </form>
           </div>
 
           <!-- COLUNA DIREITA: VOLUNTARIADO-->
+          <!-- <aside> = conteúdo complementar; o id permite links diretos (#como-ajudar) -->
           <aside class="contato-voluntario" id="como-ajudar">
             <h2>Como ajudar / Seja voluntário</h2>
             <p>Você pode participar de várias formas:</p>
+            <!-- Lista de formas de ajudar -->
             <ul class="lista">
               <li>Dando aulas ou monitorias aos sábados.</li>
               <li>Doando computadores e equipamentos.</li>
@@ -80,6 +104,7 @@
             </ul>
             <p>
               Informe no assunto:
+              <!-- <em> = ênfase (itálico) -->
               <em>"Quero ser voluntário"</em> ou <em>"Quero doar"</em>.
             </p>
             <p>
@@ -91,6 +116,7 @@
       </section>
     </main>
 
+    <!-- Local onde o rodapé será inserido via JavaScript -->
     <div id="footer"></div>
   </body>
 </html>

@@ -229,7 +229,131 @@ section img {
     border-radius: 8px;
 }
 
+/* =========================================
+   PAGINA PROJETOS
+========================================= */
 
+
+#projetos {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 70px 30px;
+}
+
+.projetos-introducao {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.projetos-introducao h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.projetos-introducao p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+
+.projeto-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+
+    margin-bottom: 100px;
+}
+
+.projeto-invertido {
+    flex-direction: row-reverse;
+}
+
+
+.projeto-conteudo {
+    flex: 1;
+}
+
+.projeto-numero {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #159b8b;
+    margin-bottom: 15px;
+}
+
+.projeto-conteudo h2 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.projeto-conteudo p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.projeto-imagem {
+    flex: 1;
+    max-width: 480px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.projeto-imagem:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    #projetos {
+        padding: 45px 20px;
+    }
+
+    .projetos-introducao {
+        margin-bottom: 50px;
+    }
+
+    .projetos-introducao h1 {
+        font-size: 2rem;
+    }
+
+    .projeto-card,
+    .projeto-invertido {
+        flex-direction: column;
+        gap: 25px;
+        margin-bottom: 65px;
+    }
+
+    .projeto-conteudo,
+    .projeto-imagem {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .projeto-conteudo h2 {
+        font-size: 1.6rem;
+    }
+
+    .projeto-imagem {
+        height: 250px;
+    }
+}
 /* =========================================
    CURSOS
 ========================================= */

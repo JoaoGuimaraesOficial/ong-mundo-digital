@@ -1,19 +1,21 @@
-const botao = document.getElementById("btn-info");
-const painel = document.getElementById("painel-info");
+// Interações dos projetos: cada card abre e fecha a sua própria missão.
+function iniciarMissoes() {
+  const botoes = document.querySelectorAll(".btn-missao");
 
-// Se a página não tiver esses elementos, sai sem erro
-if (botao && painel) {
-  function alternarPainel() {
-    if (painel.style.display === "none") {
-      painel.style.display = "block";
-      botao.textContent = "Ocultar informações";
-      botao.setAttribute("aria-expanded", "true");
-    } else {
-      painel.style.display = "none";
-      botao.textContent = "Mostrar como podemos ajudar você";
-      botao.setAttribute("aria-expanded", "false");
-    }
-  }
+  botoes.forEach((botao) => {
+    const painelId = botao.getAttribute("aria-controls");
+    const painel = painelId ? document.getElementById(painelId) : null;
 
-  botao.addEventListener("click", alternarPainel);
+    if (!painel) return;
+
+    botao.addEventListener("click", () => {
+      const aberto = botao.getAttribute("aria-expanded") === "true";
+
+      botao.setAttribute("aria-expanded", String(!aberto));
+      botao.textContent = aberto ? "Ver missão do projeto" : "Ocultar missão do projeto";
+      painel.hidden = aberto;
+    });
+  });
 }
+
+document.addEventListener("DOMContentLoaded", iniciarMissoes);

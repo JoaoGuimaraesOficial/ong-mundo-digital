@@ -1,12 +1,17 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conheça a história, a missão e o público atendido pela ONG Conecta Futuro."
+    />
     <title>Sobre - Conecta Futuro</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/layout-push.js" defer></script>
     <script src="../js/animation.js" defer></script>
+    <script src="../js/interacao.js" defer></script>
   </head>
   <body>
     <div id="header"></div>
@@ -18,15 +23,15 @@
           <p class="sobretexto">
             A Conecta Futuro é uma ONG educacional que tem como missão promover
             a inclusão digital e ampliar oportunidades por meio da tecnologia e
-            da educação. Nosso Objetivo é oferecer acesso ao conhecimento,
-            ferramentas digitais e opotunidades de aprendizado para crianças,
+            da educação. Nosso objetivo é oferecer acesso ao conhecimento,
+            ferramentas digitais e oportunidades de aprendizado para crianças,
             jovens e pessoas em situação de vulnerabilidade social.
           </p>
           <p class="sobretexto">
             Acreditamos que a tecnologia deve ser acessível a todos e que o
             conhecimento é uma das principais ferramentas para transformar
             realidades. Por isso, desenvolvemos atividades educativas, oficinas
-            de informatica e iniciativas de capacitação digital, incentivando o
+            de informática e iniciativas de capacitação digital, incentivando o
             desenvolvimento pessoal, acadêmico e profissional dos participantes.
           </p>
           <p class="sobretexto">
@@ -34,7 +39,28 @@
             buscamos despertar talentos, estimular a criatividade e preparar
             pessoas para os desafios de um mundo cada vez mais conectado.
           </p>
+
+          <button
+            id="btn-info"
+            class="btn"
+            aria-expanded="false"
+            aria-controls="painel-info"
+            type="button"
+          >
+            Mostrar como podemos ajudar você
+          </button>
+
+          <!-- Painel que começa OCULTO. O JS troca display none/block. -->
+          <div id="painel-info" class="painel" style="display: none">
+            <p>
+              Oferecemos cursos gratuitos, empréstimo de computadores no
+              laboratório e orientação para criar currículo e e-mail. Basta
+              comparecer à nossa sede ou enviar uma mensagem pela página de
+              contato.
+            </p>
+          </div>
         </div>
+
         <div class="imagem-sobre">
           <img
             src="../assets/professoraensinando.jpg"

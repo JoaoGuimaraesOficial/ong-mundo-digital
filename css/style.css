@@ -1,6 +1,20 @@
-/* =========================================
-   CONFIGURAÇÕES GERAIS
-========================================= */
+:root {
+    --roxo: #6d28d9;
+    --roxo-claro: #ede9fe;
+    --navy: #1e3a5f;      
+    --navy-escuro: #0f1038;
+    --laranja: #f4a261; 
+    --azul-link: #1e5a91;
+    --texto: #333;
+    --texto-suave: #5b5877;
+    --linha: #ddd6fe;
+    --fundo: #f5f7fa;
+    --branco: #ffffff;
+    --erro: #b91c1c;
+    --raio: 8px;
+    --raio-card: 16px;
+    --fonte: Arial, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
 
 * {
     margin: 0;
@@ -10,20 +24,20 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
+    font-family: var(--fonte);
+    background-color: var(--fundo);
+    color: var(--texto);
     line-height: 1.6;
 }
 
 a {
-    color: #1e5a91;
+    color: var(--azul-link);
     text-decoration: none;
     transition: 0.3s;
 }
 
 a:hover {
-    color: #f4a261;
+    color: var(--laranja);
 }
 
 img {
@@ -35,10 +49,16 @@ ul {
     list-style-position: inside;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--laranja);
+    outline-offset: 2px;
+}
 
-/* =========================================
-   HEADER
-========================================= */
+/* HEADER */
 
 .navbar {
     display: flex;
@@ -46,11 +66,14 @@ ul {
     justify-content: space-between;
     gap: 20px;
     padding: 15px 5%;
-    background-color: #1e3a5f;
+    background-color: var(--navy);
     color: white;
     opacity: 0;
     transform: translateY(-15px);
     transition: 0.5s;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .navbar.visible {
@@ -65,7 +88,7 @@ ul {
 }
 
 .brand:hover {
-    color: #f4a261;
+    color: var(--laranja);
 }
 
 .nav-menu ul {
@@ -80,20 +103,20 @@ ul {
 }
 
 .nav-menu a:hover {
-    color: #f4a261;
+    color: var(--laranja);
 }
 
 .btn-doar {
     padding: 9px 18px;
     border-radius: 5px;
-    background-color: #f4a261;
-    color: #1e3a5f;
+    background-color: var(--laranja);
+    color: var(--navy);
     font-weight: bold;
 }
 
 .btn-doar:hover {
     background-color: white;
-    color: #1e3a5f;
+    color: var(--navy);
 }
 
 /* Menu mobile */
@@ -113,10 +136,7 @@ ul {
     background-color: white;
 }
 
-
-/* =========================================
-   ESTRUTURA GERAL
-========================================= */
+/* ESTRUTURA GERAL */
 
 main {
     width: 100%;
@@ -129,7 +149,8 @@ section {
 section h1,
 section h2 {
     margin-bottom: 20px;
-    color: #1e3a5f;
+    color: var(--navy);
+    line-height: 1.15;
 }
 
 section p {
@@ -137,13 +158,10 @@ section p {
 }
 
 section img {
-    border-radius: 8px;
+    border-radius: var(--raio);
 }
 
-
-/* =========================================
-   PÁGINA INICIAL
-========================================= */
+/* PÁGINA INICIAL (index) */
 
 #inicio {
     text-align: center;
@@ -152,7 +170,8 @@ section img {
 }
 
 #inicio h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    margin-bottom: 16px;
 }
 
 #inicio .botoes {
@@ -169,13 +188,19 @@ section img {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #1e5a91;
+    background-color: var(--azul-link);
     color: white;
+    border: 2px solid var(--azul-link);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .btn:hover {
-    background-color: #f4a261;
-    color: #333;
+    background-color: var(--laranja);
+    border-color: var(--laranja);
+    color: var(--texto);
 }
 
 /* Apresentação da iniciativa */
@@ -185,10 +210,61 @@ section img {
     text-align: center;
 }
 
+/* lista de valores da home (chips) */
+#sobre ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    margin: 20px 0 25px;
+}
 
-/* =========================================
-   PÁGINA SOBRE
-========================================= */
+#sobre ul li {
+    flex: 1 1 220px;
+    max-width: 300px;
+    padding: 16px 20px;
+    background: var(--branco);
+    border-radius: var(--raio-card);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    font-weight: 600;
+    list-style: none;
+}
+
+.cta-contato {
+    background-color: var(--navy);
+    color: white;
+    text-align: center;
+    border-radius: 12px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.cta-contato h2 {
+    color: white;
+}
+
+.cta-contato p {
+    color: #e8f1fa;
+    margin-inline: auto;
+    max-width: 65ch;
+}
+
+.cta-contato .btn {
+    background-color: var(--laranja);
+    border-color: var(--laranja);
+    color: var(--navy);
+    margin-top: 16px;
+}
+
+.cta-contato .btn:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--navy);
+}
+
+/* PÁGINA SOBRE */
 
 .container-sobre {
     display: flex;
@@ -207,7 +283,7 @@ section img {
 
 .card-sobre h1 {
     margin-bottom: 25px;
-    color: #1e3a5f;
+    color: var(--navy);
 }
 
 .sobretexto {
@@ -226,13 +302,23 @@ section img {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: var(--raio);
 }
 
-/* =========================================
-   PAGINA PROJETOS
-========================================= */
+.painel {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--roxo-claro);
+    border-left: 4px solid var(--roxo);
+    border-radius: var(--raio);
+    max-width: 65ch;
+}
 
+.painel p {
+    margin: 0;
+}
+
+/* PÁGINA PROJETOS */
 
 #projetos {
     width: 100%;
@@ -260,20 +346,17 @@ section img {
     line-height: 1.7;
 }
 
-
 .projeto-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 60px;
-
     margin-bottom: 100px;
 }
 
 .projeto-invertido {
     flex-direction: row-reverse;
 }
-
 
 .projeto-conteudo {
     flex: 1;
@@ -320,7 +403,6 @@ section img {
 }
 
 @media (max-width: 768px) {
-
     #projetos {
         padding: 45px 20px;
     }
@@ -354,9 +436,8 @@ section img {
         height: 250px;
     }
 }
-/* =========================================
-   CURSOS
-========================================= */
+
+/* CURSOS */
 
 #cursos {
     text-align: center;
@@ -374,10 +455,11 @@ section img {
     flex: 1 1 220px;
     max-width: 320px;
     padding: 25px;
-    border-radius: 8px;
+    border-radius: var(--raio);
     background-color: white;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: 0.3s;
+    text-align: left;
 }
 
 .card-curso:hover {
@@ -385,14 +467,21 @@ section img {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
 }
 
+.card-curso h3 {
+    color: var(--navy);
+    margin-bottom: 8px;
+}
 
-/* =========================================
-   VOLUNTÁRIOS
-========================================= */
+.card-curso p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+/* VOLUNTÁRIOS */
 
 #voluntarios {
     text-align: center;
-    background-color: #1e3a5f;
+    background-color: var(--navy);
     color: white;
 }
 
@@ -402,82 +491,135 @@ section img {
 
 #voluntarios .btn {
     margin-top: 15px;
-    background-color: #f4a261;
-    color: #1e3a5f;
+    background-color: var(--laranja);
+    border-color: var(--laranja);
+    color: var(--navy);
 }
 
-
-/* =========================================
-   COMO AJUDAR
-========================================= */
+/* COMO AJUDAR */
 
 #como-ajudar {
     text-align: center;
     background-color: #e8f1fa;
 }
 
-
-/* =========================================
-   CONTATO
-========================================= */
+/* CONTATO E FORMULÁRIO */
 
 #contato {
     background-color: white;
 }
 
-#contato form {
+.contato-flex {                    
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 25px;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1150px;
+    margin: 0 auto;
 }
 
-#contato label {
+.contato-form {
+    flex: 1 1 340px;
+    max-width: 560px;
+}
+
+.contato-form h1,
+.contato-form h2 {
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+/* Caixa amarela de aviso (envio simulado) */
+.aviso {
+    background: #fef3c7;
+    border: 1px solid var(--laranja);
+    padding: 10px 14px;
+    border-radius: var(--raio);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+#form {
+    display: grid;
+    gap: 6px;
+    margin-top: 16px;
+}
+
+#form label {
     font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 8px;
 }
 
-#contato input,
-#contato select,
-#contato textarea {
+#form input,
+#form textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 11px 14px;
+    border: 1.5px solid #8b87a8;
+    border-radius: var(--raio);
     font: inherit;
     background-color: #f9f9f9;
 }
 
-#contato textarea {
+#form textarea {
     min-height: 120px;
     resize: vertical;
 }
 
-#contato button {
-    padding: 12px;
-    border: 0;
-    border-radius: 5px;
-    background-color: #1e5a91;
-    color: white;
-    font: inherit;
-    cursor: pointer;
+#form .btn {
+    margin-top: 12px;
+    justify-self: start;
 }
 
-#contato button:hover {
-    background-color: #f4a261;
-    color: #333;
+/* Mensagens de erro por campo */
+.erro {
+    color: var(--erro);
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    display: block;
 }
 
+#form input.invalido,
+#form textarea.invalido {
+    border-color: var(--erro);
+    background-color: #fef2f2;
+}
 
-/* =========================================
-   FOOTER
-========================================= */
+#retorno {
+    font-weight: 600;
+    color: #4c1d95;
+    margin-top: 12px;
+}
+
+/* Bloco de voluntariado ao lado do formulário */
+.contato-voluntario {
+    flex: 1 1 260px;
+    background: #e8f1fa;
+    padding: 24px;
+    border-radius: var(--raio-card);
+}
+
+.contato-voluntario h2 {
+    margin-top: 0;
+    color: var(--navy);
+}
+
+.contato-voluntario .lista {
+    list-style: disc;
+    padding-left: 22px;
+    margin-bottom: 16px;
+}
+
+.contato-voluntario .lista li {
+    margin-bottom: 6px;
+}
+
+/* FOOTER */
 
 .footer {
     width: 100%;
     margin-top: 50px;
-    background-color: #1e3a5f;
+    background-color: var(--navy);
     color: white;
 }
 
@@ -489,8 +631,6 @@ section img {
     margin: 0 auto;
     padding: 40px 30px;
 }
-
-/* Títulos */
 
 .footer-container h3 {
     margin-bottom: 15px;
@@ -504,16 +644,12 @@ section img {
     color: white;
 }
 
-/* Sobre */
-
 .footer-about p {
     margin: 0;
     font-size: 14px;
     line-height: 1.7;
     color: #e8f1fa;
 }
-
-/* Links rápidos */
 
 .footer-links ul {
     padding: 0;
@@ -530,10 +666,8 @@ section img {
 }
 
 .footer-links a:hover {
-    color: #f4a261;
+    color: var(--laranja);
 }
-
-/* Contato */
 
 .footer-contact p {
     margin-bottom: 10px;
@@ -541,8 +675,6 @@ section img {
     font-size: 14px;
     line-height: 1.6;
 }
-
-/* Redes sociais */
 
 .footer-social {
     display: flex;
@@ -564,7 +696,7 @@ section img {
 }
 
 .footer-social a:hover {
-    color: #f4a261;
+    color: var(--laranja);
 }
 
 .footer-social img {
@@ -572,8 +704,6 @@ section img {
     height: 20px;
     object-fit: contain;
 }
-
-/* Rodapé inferior */
 
 .footer-bottom {
     padding: 18px 20px;
@@ -587,17 +717,12 @@ section img {
     font-size: 13px;
 }
 
-
-/* =========================================
-   ANIMAÇÕES
-========================================= */
+/* ANIMAÇÕES */
 
 .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition:
-        opacity 0.6s,
-        transform 0.6s;
+    transition: opacity 0.6s, transform 0.6s;
 }
 
 .reveal.visible {
@@ -605,15 +730,9 @@ section img {
     transform: translateY(0);
 }
 
-
-/* =========================================
-   RESPONSIVIDADE
-========================================= */
+/* RESPONSIVIDADE */
 
 @media (max-width: 768px) {
-
-    /* Header */
-
     .navbar {
         flex-wrap: wrap;
     }
@@ -642,8 +761,6 @@ section img {
         display: none;
     }
 
-    /* Página Sobre */
-
     .container-sobre {
         flex-direction: column;
         padding: 40px 6%;
@@ -663,8 +780,6 @@ section img {
         flex: none;
     }
 
-    /* Footer */
-
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
@@ -672,9 +787,7 @@ section img {
     }
 }
 
-
 @media (max-width: 480px) {
-
     section {
         padding: 40px 6%;
     }
@@ -687,8 +800,6 @@ section img {
         padding: 30px 6%;
     }
 
-    /* Footer */
-
     .footer-container {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -700,13 +811,9 @@ section img {
     }
 }
 
-
-/* =========================================
-   ACESSIBILIDADE: MOVIMENTO REDUZIDO
-========================================= */
+/* ACESSIBILIDADE: MOVIMENTO REDUZIDO */
 
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {

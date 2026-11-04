@@ -1,42 +1,38 @@
+<!-- Declara que o documento usa HTML5 -->
 <!doctype html>
+<!-- Idioma da página -->
 <html lang="pt-BR">
   <head>
-    <!-- Configurações do documento -->
+    <!-- Codificação de caracteres -->
     <meta charset="UTF-8" />
+    <!-- Responsividade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Descrição da página -->
+    <!-- Descrição para buscadores -->
     <meta
       name="description"
       content="Conheça a história, a missão e o público atendido pela ONG Conecta Futuro."
     />
-
     <title>Sobre - Conecta Futuro</title>
-
-    <!-- Arquivo de estilos -->
+    <!-- Caminhos com "../" porque a página está na pasta /content -->
     <link rel="stylesheet" href="../css/style.css" />
-
-    <!-- Carregamento do header e footer -->
+    <!-- Injeta header e footer -->
     <script src="../js/layout-push.js" defer></script>
-
     <!-- Animações e menu mobile -->
     <script src="../js/animation.js" defer></script>
-
-    <!-- Interação do painel de ajuda -->
+    <!-- Controla o botão que mostra/esconde o painel de ajuda -->
     <script src="../js/interacao.js" defer></script>
   </head>
-
   <body>
-    <!-- Cabeçalho carregado pelo JavaScript -->
+    <!-- Cabeçalho inserido via JS -->
     <div id="header"></div>
 
     <main>
-      <!-- Apresentação da ONG -->
+      <!-- Container flex: texto à esquerda, imagem à direita -->
       <div class="container-sobre">
-        <!-- Conteúdo textual -->
+        <!-- Cartão de texto -->
         <div class="card-sobre">
           <h1>Sobre Nós</h1>
-
+          <!-- Parágrafos de apresentação da ONG -->
           <p class="sobretexto">
             A Conecta Futuro é uma ONG educacional que tem como missão promover
             a inclusão digital e ampliar oportunidades por meio da tecnologia e
@@ -44,7 +40,6 @@
             ferramentas digitais e oportunidades de aprendizado para crianças,
             jovens e pessoas em situação de vulnerabilidade social.
           </p>
-
           <p class="sobretexto">
             Acreditamos que a tecnologia deve ser acessível a todos e que o
             conhecimento é uma das principais ferramentas para transformar
@@ -52,25 +47,25 @@
             de informática e iniciativas de capacitação digital, incentivando o
             desenvolvimento pessoal, acadêmico e profissional dos participantes.
           </p>
-
           <p class="sobretexto">
             Mais do que ensinar a utilizar computadores e ferramentas digitais,
             buscamos despertar talentos, estimular a criatividade e preparar
             pessoas para os desafios de um mundo cada vez mais conectado.
           </p>
 
-          <!-- Botão para mostrar ou ocultar o painel de ajuda -->
+          <!-- Botão que mostra/oculta o painel abaixo.
+               aria-expanded e aria-controls informam o estado e o alvo a leitores de tela -->
           <button
             id="btn-info"
             class="btn"
-            type="button"
             aria-expanded="false"
             aria-controls="painel-info"
+            type="button"
           >
             Mostrar como podemos ajudar você
           </button>
 
-          <!-- Painel de informações -->
+          <!-- Painel que começa OCULTO. O JS troca display none/block. -->
           <div id="painel-info" class="painel" style="display: none">
             <p>
               Oferecemos cursos gratuitos, empréstimo de computadores no
@@ -81,8 +76,9 @@
           </div>
         </div>
 
-        <!-- Imagem de apresentação -->
+        <!-- Coluna da imagem -->
         <div class="imagem-sobre">
+          <!-- "alt" descreve a imagem; width define a largura sugerida -->
           <img
             src="../assets/professoraensinando.jpg"
             alt="Jovens estudando juntos em uma sala de aula"
@@ -90,63 +86,9 @@
           />
         </div>
       </div>
-
-      <!-- Missão geral da ONG -->
-      <section class="missao-ong" aria-labelledby="titulo-missao">
-        <h2 id="titulo-missao">Nossa missão</h2>
-
-        <p class="missao-destaque">
-          Queremos tornar a tecnologia mais acessível e mostrar que todos podem
-          fazer parte do mundo digital.
-        </p>
-
-        <p class="sobretexto">
-          Vivemos em uma época em que a tecnologia está presente em quase tudo:
-          na procura por um emprego, nos estudos, no acesso a serviços e até na
-          comunicação com outras pessoas. Mesmo assim, muita gente ainda
-          encontra dificuldades para realizar tarefas simples pela internet,
-          seja por falta de acesso ou por não saber como utilizar essas
-          ferramentas.
-        </p>
-
-        <p class="sobretexto">
-          É nesse cenário que a Conecta Futuro busca fazer a diferença. Queremos
-          oferecer oportunidades para que crianças, jovens, adultos e idosos
-          aprendam a utilizar a tecnologia de maneira simples, segura e no
-          próprio ritmo. Mais do que ensinar informática, queremos ajudar cada
-          pessoa a desenvolver confiança e independência no ambiente digital.
-        </p>
-
-        <p class="sobretexto">
-          Acreditamos que o aprendizado pode abrir muitas portas. Conseguir
-          criar um currículo, enviar um e-mail, participar de uma aula online ou
-          reconhecer uma tentativa de golpe são conquistas que fazem diferença
-          no dia a dia. É por meio dessas experiências que buscamos construir
-          uma sociedade com mais acesso, conhecimento e oportunidades.
-        </p>
-
-        <!-- Pilares que orientam o trabalho da ONG -->
-        <ul class="missao-pilares">
-          <li>
-            <strong>Educar</strong>
-            Incentivar o aprendizado e o uso consciente e seguro da tecnologia.
-          </li>
-
-          <li>
-            <strong>Incluir</strong>
-            Aproximar do mundo digital quem ainda encontra dificuldades para
-            acessá-lo.
-          </li>
-
-          <li>
-            <strong>Transformar</strong>
-            Criar novas possibilidades por meio da educação e do conhecimento.
-          </li>
-        </ul>
-      </section>
     </main>
 
-    <!-- Rodapé carregado pelo JavaScript -->
+    <!-- Rodapé inserido via JS -->
     <div id="footer"></div>
   </body>
 </html>

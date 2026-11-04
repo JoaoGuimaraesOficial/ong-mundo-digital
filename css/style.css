@@ -1,21 +1,26 @@
+/* VARIÁVEIS GLOBAIS
+   Guardam cores, tamanhos e fonte para reutilizar com var(--nome) */
 :root {
     --roxo: #6d28d9;
     --roxo-claro: #ede9fe;
-    --navy: #1e3a5f;      
+    --navy: #1e3a5f;      /* azul escuro principal */
     --navy-escuro: #0f1038;
-    --laranja: #f4a261; 
+    --laranja: #f4a261;   /* cor de destaque (hover e botões) */
     --azul-link: #1e5a91;
     --texto: #333;
     --texto-suave: #5b5877;
     --linha: #ddd6fe;
     --fundo: #f5f7fa;
     --branco: #ffffff;
-    --erro: #b91c1c;
-    --raio: 8px;
-    --raio-card: 16px;
+    --erro: #b91c1c;      /* vermelho dos erros */
+    --raio: 8px;          /* arredondamento padrão */
+    --raio-card: 16px;    /* arredondamento dos cards */
     --fonte: Arial, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+/* RESET: zera margens/espaços padrão do navegador.
+   box-sizing: border-box faz padding e borda entrarem no cálculo da largura.
+   scroll-behavior: smooth deixa a rolagem por âncoras suave. */
 * {
     margin: 0;
     padding: 0;
@@ -23,32 +28,38 @@
     scroll-behavior: smooth;
 }
 
+/* Estilo base do corpo da página */
 body {
     font-family: var(--fonte);
     background-color: var(--fundo);
     color: var(--texto);
-    line-height: 1.6;
+    line-height: 1.6; /* espaçamento entre linhas */
 }
 
+/* Links: sem sublinhado, com transição suave de cor */
 a {
     color: var(--azul-link);
     text-decoration: none;
     transition: 0.3s;
 }
 
+/* Ao passar o mouse, o link fica laranja */
 a:hover {
     color: var(--laranja);
 }
 
+/* Imagens nunca ultrapassam a largura do container */
 img {
     max-width: 100%;
     display: block;
 }
 
+/* Marcadores da lista ficam dentro da área do texto */
 ul {
     list-style-position: inside;
 }
 
+/* Contorno visível ao navegar pelo teclado (acessibilidade) */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -60,6 +71,7 @@ select:focus-visible {
 
 /* HEADER */
 
+/* Barra de navegação: flex distribui logo e menu; sticky a mantém fixa no topo ao rolar */
 .navbar {
     display: flex;
     align-items: center;
@@ -68,19 +80,22 @@ select:focus-visible {
     padding: 15px 5%;
     background-color: var(--navy);
     color: white;
+    /* Começa invisível e levemente acima; a classe "visible" faz aparecer */
     opacity: 0;
     transform: translateY(-15px);
     transition: 0.5s;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 100; /* fica acima dos outros elementos */
 }
 
+/* Estado final da animação de entrada do header */
 .navbar.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Nome/logo da ONG */
 .brand {
     color: white;
     font-size: 1.3rem;
@@ -91,6 +106,7 @@ select:focus-visible {
     color: var(--laranja);
 }
 
+/* Lista do menu em linha horizontal */
 .nav-menu ul {
     display: flex;
     align-items: center;
@@ -106,6 +122,7 @@ select:focus-visible {
     color: var(--laranja);
 }
 
+/* Botão "Doar" em destaque */
 .btn-doar {
     padding: 9px 18px;
     border-radius: 5px;
@@ -121,6 +138,7 @@ select:focus-visible {
 
 /* Menu mobile */
 
+/* Botão hambúrguer: escondido no desktop (aparece no @media mobile) */
 .nav-toggle {
     display: none;
     border: 0;
@@ -128,6 +146,7 @@ select:focus-visible {
     cursor: pointer;
 }
 
+/* As três barrinhas do ícone */
 .nav-toggle span {
     display: block;
     width: 25px;
@@ -142,10 +161,12 @@ main {
     width: 100%;
 }
 
+/* Espaçamento padrão de todas as seções */
 section {
     padding: 60px 8%;
 }
 
+/* Títulos das seções */
 section h1,
 section h2 {
     margin-bottom: 20px;
@@ -163,17 +184,20 @@ section img {
 
 /* PÁGINA INICIAL (index) */
 
+/* Seção de abertura (hero) */
 #inicio {
     text-align: center;
     background-color: #e8f1fa;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 12px 12px; /* arredonda só os cantos de baixo */
 }
 
+/* clamp() faz o título crescer com a tela, entre 2rem e 2.5rem */
 #inicio h1 {
     font-size: clamp(2rem, 6vw, 2.5rem);
     margin-bottom: 16px;
 }
 
+/* Linha de botões centralizada; quebra de linha se faltar espaço */
 #inicio .botoes {
     display: flex;
     justify-content: center;
@@ -184,6 +208,7 @@ section img {
 
 /* Botões */
 
+/* Estilo padrão dos botões (links ou <button>) */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -191,12 +216,13 @@ section img {
     background-color: var(--azul-link);
     color: white;
     border: 2px solid var(--azul-link);
-    font: inherit;
+    font: inherit; /* usa a mesma fonte do restante da página */
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
 }
 
+/* Ao passar o mouse, fica laranja */
 .btn:hover {
     background-color: var(--laranja);
     border-color: var(--laranja);
@@ -220,8 +246,9 @@ section img {
     margin: 20px 0 25px;
 }
 
+/* Cada item vira um cartãozinho branco com sombra */
 #sobre ul li {
-    flex: 1 1 220px;
+    flex: 1 1 220px;   /* cresce, encolhe e tem base de 220px */
     max-width: 300px;
     padding: 16px 20px;
     background: var(--branco);
@@ -231,13 +258,14 @@ section img {
     list-style: none;
 }
 
+/* Caixa azul de chamada final (CTA) */
 .cta-contato {
     background-color: var(--navy);
     color: white;
     text-align: center;
     border-radius: 12px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto; /* centraliza horizontalmente */
     padding: 50px 20px;
 }
 
@@ -248,9 +276,10 @@ section img {
 .cta-contato p {
     color: #e8f1fa;
     margin-inline: auto;
-    max-width: 65ch;
+    max-width: 65ch; /* limita a largura do texto para facilitar a leitura */
 }
 
+/* Botão laranja dentro da caixa azul */
 .cta-contato .btn {
     background-color: var(--laranja);
     border-color: var(--laranja);
@@ -266,6 +295,7 @@ section img {
 
 /* PÁGINA SOBRE */
 
+/* Texto e imagem lado a lado, centralizados */
 .container-sobre {
     display: flex;
     align-items: center;
@@ -278,7 +308,7 @@ section img {
 
 .card-sobre {
     flex: 1;
-    min-width: 0;
+    min-width: 0; /* evita que o conteúdo estoure o container */
 }
 
 .card-sobre h1 {
@@ -286,6 +316,7 @@ section img {
     color: var(--navy);
 }
 
+/* Parágrafos justificados */
 .sobretexto {
     margin-bottom: 20px;
     font-size: 18px;
@@ -293,6 +324,7 @@ section img {
     text-align: justify;
 }
 
+/* Coluna da imagem: no máximo 480px */
 .imagem-sobre {
     flex: 0 1 480px;
     min-width: 0;
@@ -305,11 +337,12 @@ section img {
     border-radius: var(--raio);
 }
 
+/* Painel de ajuda que abre ao clicar no botão */
 .painel {
     margin-top: 20px;
     padding: 20px;
     background: var(--roxo-claro);
-    border-left: 4px solid var(--roxo);
+    border-left: 4px solid var(--roxo); /* faixa roxa lateral */
     border-radius: var(--raio);
     max-width: 65ch;
 }
@@ -320,6 +353,7 @@ section img {
 
 /* PÁGINA PROJETOS */
 
+/* Container geral da página, centralizado */
 #projetos {
     width: 100%;
     max-width: 1150px;
@@ -327,6 +361,7 @@ section img {
     padding: 70px 30px;
 }
 
+/* Bloco de introdução no topo */
 .projetos-introducao {
     text-align: center;
     margin-bottom: 80px;
@@ -346,16 +381,18 @@ section img {
     line-height: 1.7;
 }
 
+/* Texto pequeno em maiúsculas acima do título */
 .eyebrow {
     display: inline-block;
     margin-bottom: 10px;
     color: #159b8b;
     font-size: 0.8rem;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 2px; /* espaço entre as letras */
     text-transform: uppercase;
 }
 
+/* Card de projeto: texto de um lado, imagem do outro */
 .projeto-card {
     display: flex;
     align-items: center;
@@ -364,6 +401,7 @@ section img {
     margin-bottom: 100px;
 }
 
+/* Inverte a ordem (imagem à esquerda) nos cards alternados */
 .projeto-invertido {
     flex-direction: row-reverse;
 }
@@ -372,6 +410,7 @@ section img {
     flex: 1;
 }
 
+/* Etiqueta "01 / EDUCAÇÃO DIGITAL" */
 .projeto-numero {
     display: inline-block;
     font-size: 0.8rem;
@@ -393,10 +432,12 @@ section img {
     color: #555;
 }
 
+/* Botão "Ver missão do projeto" */
 .btn-missao {
     margin-top: 8px;
 }
 
+/* Painel de missão (abre/fecha pelo JS) */
 .missao-panel {
     margin-top: 20px;
     padding: 20px;
@@ -416,17 +457,20 @@ section img {
     font-size: 0.95rem;
 }
 
+/* Último parágrafo do painel fica mais perto do link */
 .missao-panel p:last-of-type {
     margin-bottom: 12px;
 }
 
+/* Link de ação (ex.: "Quero ser voluntário") */
 .link-acao {
     font-weight: bold;
     text-decoration: underline;
 }
 
+/* Estilos para páginas internas (ex.: créditos) */
 .pagina-interna {
-    min-height: 55vh;
+    min-height: 55vh; /* altura mínima: 55% da altura da tela */
     background: var(--branco);
 }
 
@@ -447,6 +491,7 @@ section img {
     margin-bottom: 14px;
 }
 
+/* Nota de destaque (faixa laranja lateral) */
 .nota-credito {
     margin-top: 35px;
     padding: 16px 20px;
@@ -454,6 +499,7 @@ section img {
     background: #fff8eb;
 }
 
+/* Moldura da imagem do projeto: tamanho fixo e corta o excesso */
 .projeto-imagem {
     flex: 1;
     max-width: 480px;
@@ -462,6 +508,7 @@ section img {
     border-radius: 15px;
 }
 
+/* object-fit: cover preenche a moldura sem distorcer a foto */
 .projeto-imagem img {
     width: 100%;
     height: 100%;
@@ -469,10 +516,12 @@ section img {
     transition: transform 0.4s ease;
 }
 
+/* Zoom suave ao passar o mouse */
 .projeto-imagem:hover img {
     transform: scale(1.05);
 }
 
+/* Ajustes da página de projetos para telas até 768px (tablet/celular) */
 @media (max-width: 768px) {
     #projetos {
         padding: 45px 20px;
@@ -486,6 +535,7 @@ section img {
         font-size: 2rem;
     }
 
+    /* Cards passam a empilhar (um embaixo do outro) */
     .projeto-card,
     .projeto-invertido {
         flex-direction: column;
@@ -514,6 +564,7 @@ section img {
     text-align: center;
 }
 
+/* Cards de curso lado a lado, quebrando linha quando faltar espaço */
 .cursos-container {
     display: flex;
     justify-content: center;
@@ -522,6 +573,7 @@ section img {
     margin-top: 30px;
 }
 
+/* Cartão de um curso */
 .card-curso {
     flex: 1 1 220px;
     max-width: 320px;
@@ -533,6 +585,7 @@ section img {
     text-align: left;
 }
 
+/* Ao passar o mouse, o card sobe um pouco e a sombra aumenta */
 .card-curso:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
@@ -580,6 +633,7 @@ section img {
     background-color: white;
 }
 
+/* Formulário e voluntariado lado a lado; empilham se faltar espaço */
 .contato-flex {                    
     display: flex;
     flex-wrap: wrap;
@@ -610,6 +664,7 @@ section img {
     margin-bottom: 12px;
 }
 
+/* Formulário em grade: um campo embaixo do outro */
 #form {
     display: grid;
     gap: 6px;
@@ -622,6 +677,7 @@ section img {
     margin-top: 8px;
 }
 
+/* Campos de texto ocupam toda a largura */
 #form input,
 #form textarea {
     width: 100%;
@@ -632,11 +688,13 @@ section img {
     background-color: #f9f9f9;
 }
 
+/* A mensagem só pode ser redimensionada na vertical */
 #form textarea {
     min-height: 120px;
     resize: vertical;
 }
 
+/* Botão Enviar alinhado à esquerda */
 #form .btn {
     margin-top: 12px;
     justify-self: start;
@@ -646,16 +704,18 @@ section img {
 .erro {
     color: var(--erro);
     font-size: 0.85rem;
-    min-height: 1.2em;
+    min-height: 1.2em; /* reserva espaço para a página não "pular" ao aparecer o erro */
     display: block;
 }
 
+/* Campo com erro: borda vermelha e fundo rosado (classe adicionada pelo JS) */
 #form input.invalido,
 #form textarea.invalido {
     border-color: var(--erro);
     background-color: #fef2f2;
 }
 
+/* Mensagem final do formulário */
 #retorno {
     font-weight: 600;
     color: #4c1d95;
@@ -675,6 +735,7 @@ section img {
     color: var(--navy);
 }
 
+/* Lista com bolinhas (marcadores) */
 .contato-voluntario .lista {
     list-style: disc;
     padding-left: 22px;
@@ -694,6 +755,7 @@ section img {
     color: white;
 }
 
+/* Grade de 4 colunas iguais */
 .footer-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -722,6 +784,7 @@ section img {
     color: #e8f1fa;
 }
 
+/* Lista de links sem marcadores */
 .footer-links ul {
     padding: 0;
     list-style: none;
@@ -747,6 +810,7 @@ section img {
     line-height: 1.6;
 }
 
+/* Coluna de transparência: itens empilhados à esquerda */
 .footer-social {
     display: flex;
     flex-direction: column;
@@ -776,6 +840,7 @@ section img {
     object-fit: contain;
 }
 
+/* Faixa inferior com linha de separação e copyright */
 .footer-bottom {
     padding: 18px 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -790,12 +855,14 @@ section img {
 
 /* ANIMAÇÕES */
 
+/* Estado inicial: invisível e um pouco mais abaixo */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s, transform 0.6s;
 }
 
+/* Quando o JS adiciona "visible", o elemento aparece subindo */
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
@@ -803,24 +870,30 @@ section img {
 
 /* RESPONSIVIDADE */
 
+/* Telas até 768px (tablets e celulares) */
 @media (max-width: 768px) {
+    /* Permite que o menu vá para a linha de baixo */
     .navbar {
         flex-wrap: wrap;
     }
 
+    /* Mostra o botão hambúrguer */
     .nav-toggle {
         display: block;
     }
 
+    /* Menu começa escondido e ocupa toda a largura quando aberto */
     .nav-menu {
         display: none;
         width: 100%;
     }
 
+    /* Classe adicionada pelo JS ao abrir o menu */
     .nav-menu.open {
         display: block;
     }
 
+    /* Links do menu empilhados na vertical */
     .nav-menu ul {
         flex-direction: column;
         align-items: flex-start;
@@ -832,6 +905,7 @@ section img {
         display: none;
     }
 
+    /* Página Sobre: texto em cima, imagem embaixo */
     .container-sobre {
         flex-direction: column;
         padding: 40px 6%;
@@ -851,6 +925,7 @@ section img {
         flex: none;
     }
 
+    /* Rodapé em 2 colunas */
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
@@ -858,6 +933,7 @@ section img {
     }
 }
 
+/* Telas até 480px (celulares pequenos) */
 @media (max-width: 480px) {
     section {
         padding: 40px 6%;
@@ -871,6 +947,7 @@ section img {
         padding: 30px 6%;
     }
 
+    /* Rodapé em 1 coluna */
     .footer-container {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -884,6 +961,8 @@ section img {
 
 /* ACESSIBILIDADE: MOVIMENTO REDUZIDO */
 
+/* Para quem configurou o sistema para reduzir animações:
+   desliga rolagem suave, transições e animações */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

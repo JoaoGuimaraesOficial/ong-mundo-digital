@@ -13,7 +13,9 @@ const retorno = document.getElementById("retorno");
 
 // Os links dos projetos podem sugerir um assunto sem impedir a edição.
 // Lê o parâmetro "assunto" da URL (ex.: contato.html?assunto=doacao)
-const assuntoSugerido = new URLSearchParams(window.location.search).get("assunto");
+const assuntoSugerido = new URLSearchParams(window.location.search).get(
+  "assunto",
+);
 if (campoAssunto && assuntoSugerido) {
   // Tabela que traduz o código da URL para o texto que vai no campo
   const assuntos = {
@@ -51,12 +53,18 @@ if (form) {
     const assunto = campoAssunto.value.trim();
     const mensagem = campoMsg.value.trim();
 
+    campoEmail.value = email;
+
     // Começa assumindo que está tudo certo; qualquer erro muda para false
     let tudoCerto = true;
 
     // NOME
     if (nome.length < 3) {
-      mostrarErro(campoNome, erroNome, "O nome deve ter pelo menos 3 caracteres.");
+      mostrarErro(
+        campoNome,
+        erroNome,
+        "O nome deve ter pelo menos 3 caracteres.",
+      );
       tudoCerto = false;
     } else {
       mostrarErro(campoNome, erroNome, "");
@@ -69,7 +77,11 @@ if (form) {
       tudoCerto = false;
     } else if (!campoEmail.checkValidity()) {
       // checkValidity() usa a validação nativa do navegador para o formato do e-mail
-      mostrarErro(campoEmail, erroEmail, "Digite um e-mail válido, como nome@exemplo.com.");
+      mostrarErro(
+        campoEmail,
+        erroEmail,
+        "Digite um e-mail válido, como nome@exemplo.com.",
+      );
       tudoCerto = false;
     } else {
       mostrarErro(campoEmail, erroEmail, "");
@@ -85,7 +97,11 @@ if (form) {
 
     // MENSAGEM
     if (mensagem.length < 10) {
-      mostrarErro(campoMsg, erroMsg, "A mensagem deve ter pelo menos 10 caracteres.");
+      mostrarErro(
+        campoMsg,
+        erroMsg,
+        "A mensagem deve ter pelo menos 10 caracteres.",
+      );
       tudoCerto = false;
     } else {
       mostrarErro(campoMsg, erroMsg, "");

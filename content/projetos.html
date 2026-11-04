@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/layout-push.js" defer></script>
     <script src="../js/animation.js" defer></script>
+    <script src="../js/interacao.js" defer></script>
   </head>
   <body>
     <div id="header"></div>
@@ -18,14 +19,16 @@
     <main>
       <section id="projetos">
         <div class="projetos-introducao">
+          <span class="eyebrow">Impacto em ação</span>
           <h1>Nossos Projetos</h1>
           <p>
             Conheça as iniciativas da Conecta Futuro que utilizam a tecnologia
-            e a educação para transformar vidas.
+            e a educação para transformar vidas. Abra cada card para descobrir
+            a missão e como a comunidade pode participar.
           </p>
         </div>
 
-        <article class="projeto-card">
+        <article class="projeto-card" data-projeto="primeiros-passos">
           <div class="projeto-conteudo">
             <span class="projeto-numero">01 / EDUCAÇÃO DIGITAL</span>
             <h2>Primeiros Passos Digitais</h2>
@@ -35,16 +38,23 @@
               navegação segura na internet, digitação e ferramentas de
               comunicação.
             </p>
+            <button class="btn btn-missao" type="button" aria-expanded="false" aria-controls="missao-primeiros-passos">
+              Ver missão do projeto
+            </button>
+            <div class="missao-panel" id="missao-primeiros-passos" hidden>
+              <h3>Missão</h3>
+              <p>Dar autonomia para que pessoas de diferentes idades usem a tecnologia com segurança no dia a dia.</p>
+              <h3>Como a comunidade participa</h3>
+              <p>Voluntários podem acompanhar as oficinas, ensinar tarefas simples e indicar participantes que precisam de apoio.</p>
+              <a class="link-acao" href="contato.html?assunto=voluntariado#form">Quero ser voluntário</a>
+            </div>
           </div>
           <div class="projeto-imagem">
-            <img
-              src="../assets/primeiros-passos.jpg"
-              alt="Pessoa aprendendo a utilizar um computador"
-            />
+            <img src="../assets/primeiros-passos.jpg" alt="Pessoa aprendendo a utilizar um computador" />
           </div>
         </article>
 
-        <article class="projeto-card projeto-invertido">
+        <article class="projeto-card projeto-invertido" data-projeto="codigo-futuro">
           <div class="projeto-conteudo">
             <span class="projeto-numero">02 / PROGRAMAÇÃO</span>
             <h2>Código do Futuro</h2>
@@ -54,16 +64,23 @@
               o mercado de trabalho. Voltado a jovens de 14 a 24 anos, inclui a
               criação de um portfólio profissional para cada aluno.
             </p>
+            <button class="btn btn-missao" type="button" aria-expanded="false" aria-controls="missao-codigo-futuro">
+              Ver missão do projeto
+            </button>
+            <div class="missao-panel" id="missao-codigo-futuro" hidden>
+              <h3>Missão</h3>
+              <p>Transformar o interesse por tecnologia em habilidades práticas e oportunidades de entrada no mercado.</p>
+              <h3>Como a comunidade participa</h3>
+              <p>Profissionais podem oferecer mentorias, revisar portfólios e compartilhar oportunidades de estudo ou trabalho.</p>
+              <a class="link-acao" href="contato.html?assunto=mentoria#form">Quero apoiar como mentor</a>
+            </div>
           </div>
           <div class="projeto-imagem">
-            <img
-              src="../assets/codigo-do-futuro.jpg"
-              alt="Jovens estudando programação em computadores"
-            />
+            <img src="../assets/codigo-do-futuro.jpg" alt="Jovens estudando programação em computadores" />
           </div>
         </article>
 
-        <article class="projeto-card">
+        <article class="projeto-card" data-projeto="conecta-lab">
           <div class="projeto-conteudo">
             <span class="projeto-numero">03 / TECNOLOGIA E INCLUSÃO</span>
             <h2>Conecta Lab</h2>
@@ -74,12 +91,19 @@
               recuperados são doados às famílias de alunos com melhor
               frequência escolar.
             </p>
+            <button class="btn btn-missao" type="button" aria-expanded="false" aria-controls="missao-conecta-lab">
+              Ver missão do projeto
+            </button>
+            <div class="missao-panel" id="missao-conecta-lab" hidden>
+              <h3>Missão</h3>
+              <p>Reduzir o descarte eletrônico e ampliar o acesso a equipamentos funcionais para estudo e trabalho.</p>
+              <h3>Como a comunidade participa</h3>
+              <p>Pessoas e empresas podem doar equipamentos, ajudar na triagem e apoiar a entrega responsável às famílias.</p>
+              <a class="link-acao" href="contato.html?assunto=doacao#form">Quero fazer uma doação</a>
+            </div>
           </div>
           <div class="projeto-imagem">
-            <img
-              src="../assets/conecta-lab.jpg"
-              alt="Pessoa realizando manutenção em um computador"
-            />
+            <img src="../assets/conecta-lab.jpg" alt="Pessoa realizando manutenção em um computador" />
           </div>
         </article>
       </section>

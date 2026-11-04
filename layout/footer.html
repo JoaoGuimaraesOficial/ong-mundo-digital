@@ -1,49 +1,80 @@
-<!-- Rodapé do site: fica em layout/footer.html e é injetado pelo layout-push.js em todas as páginas -->
+<!-- Rodapé do site -->
 <footer class="footer">
-    <!-- Grade com 4 colunas (no CSS) -->
-    <div class="footer-container">
+  <!-- Conteúdo principal do rodapé -->
+  <div class="footer-container">
+    <!-- Coluna 1: Sobre a ONG -->
+    <div class="footer-about">
+      <h3>Conecta Futuro</h3>
 
-        <!-- Coluna 1: sobre a ONG -->
-        <div class="footer-about">
-            <h3>Conecta Futuro</h3>
-            <p>
-                Promovemos a inclusão digital e ampliamos oportunidades por meio da
-                tecnologia e da educação.
-            </p>
-        </div>
-
-        <!-- Coluna 2: links rápidos -->
-        <div class="footer-links">
-            <h4>Links rápidos</h4>
-            <ul>
-                <!-- href="#" é provisório; o JS troca pelo caminho real conforme o data-page -->
-                <li><a href="#" data-page="index">Início</a></li>
-                <li><a href="#" data-page="sobre">Sobre</a></li>
-                <li><a href="#" data-page="projetos">Projetos</a></li>
-                <li><a href="#" data-page="contato">Contato</a></li>
-            </ul>
-        </div>
-
-        <!-- Coluna 3: dados de contato (fictícios) -->
-        <div class="footer-contact">
-            <h4>Contato</h4>
-            <p>apenasilustracao@hotmail.com</p>
-            <p>(00) 00000-0000</p>
-            <p>São Paulo - SP</p>
-        </div>
-
-        <!-- Coluna 4: transparência / créditos das imagens -->
-        <div class="footer-social">
-            <h4>Transparência</h4>
-            <p>Consulte a origem das imagens e materiais usados no projeto.</p>
-            <a href="#" data-page="creditos">Ver créditos e fontes</a>
-        </div>
-
+      <p>
+        Promovemos a inclusão digital e ampliamos oportunidades por meio da
+        tecnologia e da educação.
+      </p>
     </div>
 
-    <!-- Faixa inferior com os direitos autorais -->
-    <div class="footer-bottom">
-        <!-- O ano é atualizado automaticamente pelo JS (o 2026 é só um valor padrão) -->
-        <p>© <span id="footer-year">2026</span> Conecta Futuro. Todos os direitos reservados.</p>
+    <!-- Coluna 2: Links rápidos -->
+    <div class="footer-links">
+      <h4>Links rápidos</h4>
+
+      <ul>
+        <li><a href="../index.html" data-page="index">Início</a></li>
+        <li><a href="../content/sobre.html" data-page="sobre">Sobre</a></li>
+        <li>
+          <a href="../content/projetos.html" data-page="projetos">Projetos</a>
+        </li>
+        <li>
+          <a href="../content/contato.html" data-page="contato">Contato</a>
+        </li>
+      </ul>
     </div>
+
+    <!-- Coluna 3: Dados de contato ilustrativos -->
+    <div class="footer-contact">
+      <h4>Contato</h4>
+
+      <p>apenasilustracao@hotmail.com</p>
+      <p>(00) 00000-0000</p>
+      <p>São Paulo - SP</p>
+    </div>
+
+    <!-- Coluna 4: Redes sociais -->
+    <div class="footer-social">
+      <h4>Redes sociais</h4>
+
+      <div class="redes-sociais">
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <img src="../assets/face.png" alt="" />
+          <span>Facebook</span>
+        </a>
+
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <img src="../assets/insta.png" alt="" />
+          <span>Instagram</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="../assets/x.png" alt="" />
+          <span>X (Novo twitter)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Faixa inferior: direitos autorais -->
+  <div class="footer-bottom">
+    <p>
+      © <span id="footer-year">2026</span> Conecta Futuro. Todos os direitos
+      reservados.
+    </p>
+  </div>
 </footer>

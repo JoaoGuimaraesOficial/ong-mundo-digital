@@ -1,38 +1,69 @@
 <!-- Declara que o documento usa HTML5 -->
 <!doctype html>
+
 <!-- Idioma da página -->
+<!-- lang="pt-BR": ajuda leitores de tela e buscadores -->
 <html lang="pt-BR">
+
   <head>
     <!-- Codificação de caracteres -->
+    <!-- UTF-8: permite acentos e cedilha -->
     <meta charset="UTF-8" />
+
     <!-- Responsividade -->
+    <!-- viewport: faz a página se ajustar à largura do dispositivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Descrição para buscadores -->
+    <!-- Aparece no Google embaixo do título (SEO) -->
     <meta
       name="description"
       content="Conheça os projetos de inclusão digital da ONG Conecta Futuro."
     />
+
+    <!-- Texto da aba do navegador -->
     <title>Projetos - Conecta Futuro</title>
+
     <!-- Caminhos com "../" porque a página está na pasta /content -->
+    <!-- Sobe uma pasta e entra em css/ -->
     <link rel="stylesheet" href="../css/style.css" />
+
     <!-- Injeta header e footer -->
+    <!-- defer: roda após o HTML ser lido.
+         Busca layout/header.html e layout/footer.html via fetch -->
     <script src="../js/layout-push.js" defer></script>
+
     <!-- Animações e menu mobile -->
+    <!-- Anima as <section> (fade + subida) e ativa o hambúrguer -->
     <script src="../js/animation.js" defer></script>
+
     <!-- Abre/fecha os painéis de missão dos projetos -->
+    <!-- Este script controla os botões .btn-missao e os .missao-panel -->
     <script src="../js/interacao.js" defer></script>
   </head>
+
   <body>
     <!-- Cabeçalho inserido via JS -->
+    <!-- O layout-push.js insere layout/header.html aqui -->
     <div id="header"></div>
 
+    <!-- <main> = conteúdo principal e único da página -->
     <main>
+
+      <!-- Seção principal de projetos.
+           id="projetos" → usado pelo CSS (#projetos) e pelo link do menu -->
       <section id="projetos">
+
         <!-- Introdução da página -->
         <div class="projetos-introducao">
+
           <!-- Texto pequeno acima do título (estilo "eyebrow") -->
+          <!-- .eyebrow = maiúsculas, verde-água, espaçamento entre letras -->
           <span class="eyebrow">Impacto em ação</span>
+
+          <!-- h1: título principal da página (único) -->
           <h1>Nossos Projetos</h1>
+
           <p>
             Conheça as iniciativas da Conecta Futuro que utilizam a tecnologia
             e a educação para transformar vidas. Abra cada card para descobrir
@@ -40,72 +71,118 @@
           </p>
         </div>
 
-        <!-- PROJETO 1. data-projeto é um atributo próprio para identificar o card -->
+        <!-- ============================================================
+             PROJETO 1
+             data-projeto é um atributo próprio (não nativo).
+             Pode ser usado no futuro por JS/CSS para identificar o card.
+             ============================================================ -->
         <article class="projeto-card" data-projeto="primeiros-passos">
+
           <!-- Lado do texto -->
           <div class="projeto-conteudo">
+
+            <!-- Etiqueta "01 / EDUCAÇÃO DIGITAL" -->
+            <!-- .projeto-numero = pequena, maiúscula, verde-água -->
             <span class="projeto-numero">01 / EDUCAÇÃO DIGITAL</span>
+
             <h2>Primeiros Passos Digitais</h2>
+
             <p>
               Oficina focada na alfabetização digital para crianças e idosos. O
               projeto ensina o uso básico do computador, sistemas operacionais,
               navegação segura na internet, digitação e ferramentas de
               comunicação.
             </p>
+
             <!-- Botão que controla o painel abaixo:
                  aria-expanded = estado (aberto/fechado) para leitores de tela;
-                 aria-controls = id do painel que ele controla -->
+                 aria-controls = id do painel que ele controla.
+                 type="button" → evita submit acidental.
+                 .btn-missao → classe usada pelo interacao.js. -->
             <button class="btn btn-missao" type="button" aria-expanded="false" aria-controls="missao-primeiros-passos">
               Ver missão do projeto
             </button>
-            <!-- Painel começa oculto (atributo "hidden"); o interacao.js o exibe -->
+
+            <!-- Painel começa oculto (atributo "hidden"); o interacao.js o exibe.
+                 id="missao-primeiros-passos" → alvo do aria-controls do botão.
+                 O JS alterna o estado com painel.hidden = true/false. -->
             <div class="missao-panel" id="missao-primeiros-passos" hidden>
+
               <h3>Missão</h3>
               <p>Dar autonomia para que pessoas de diferentes idades usem a tecnologia com segurança no dia a dia.</p>
+
               <h3>Como a comunidade participa</h3>
               <p>Voluntários podem acompanhar as oficinas, ensinar tarefas simples e indicar participantes que precisam de apoio.</p>
-              <!-- Link para o contato com "?assunto=" (o formulario.js preenche o campo assunto) e "#form" leva ao formulário -->
+
+              <!-- Link para o contato com "?assunto=" (o formulario.js preenche o campo assunto) e "#form" leva ao formulário.
+                   - ?assunto=voluntariado → query string lida pelo formulario.js
+                   - #form → âncora que rola até o <form id="form">
+                   O formulario.js traduz "voluntariado" para "Quero ser voluntário". -->
               <a class="link-acao" href="contato.html?assunto=voluntariado#form">Quero ser voluntário</a>
             </div>
           </div>
+
           <!-- Lado da imagem; "alt" descreve a imagem para acessibilidade -->
+          <!-- .projeto-imagem = moldura 480x320 com overflow hidden (corta excesso) -->
           <div class="projeto-imagem">
             <img src="../assets/primeiros-passos.jpg" alt="Pessoa aprendendo a utilizar um computador" />
           </div>
         </article>
 
-        <!-- PROJETO 2. "projeto-invertido" troca a ordem texto/imagem (imagem à esquerda) -->
+        <!-- ============================================================
+             PROJETO 2
+             "projeto-invertido" troca a ordem texto/imagem (imagem à esquerda).
+             No CSS: .projeto-invertido { flex-direction: row-reverse; }
+             ============================================================ -->
         <article class="projeto-card projeto-invertido" data-projeto="codigo-futuro">
+
           <div class="projeto-conteudo">
             <span class="projeto-numero">02 / PROGRAMAÇÃO</span>
+
             <h2>Código do Futuro</h2>
+
             <p>
               Bootcamp de capacitação técnica em lógica de programação,
               desenvolvimento web com HTML, CSS e JavaScript e informática para
               o mercado de trabalho. Voltado a jovens de 14 a 24 anos, inclui a
               criação de um portfólio profissional para cada aluno.
             </p>
+
+            <!-- Botão de missão do projeto 2 (mesmo padrão do projeto 1) -->
             <button class="btn btn-missao" type="button" aria-expanded="false" aria-controls="missao-codigo-futuro">
               Ver missão do projeto
             </button>
+
+            <!-- Painel do projeto 2 (mesmo padrão, mas com id próprio) -->
             <div class="missao-panel" id="missao-codigo-futuro" hidden>
               <h3>Missão</h3>
               <p>Transformar o interesse por tecnologia em habilidades práticas e oportunidades de entrada no mercado.</p>
+
               <h3>Como a comunidade participa</h3>
               <p>Profissionais podem oferecer mentorias, revisar portfólios e compartilhar oportunidades de estudo ou trabalho.</p>
+
+              <!-- ?assunto=mentoria → formulario.js preenche "Quero apoiar como mentor" -->
               <a class="link-acao" href="contato.html?assunto=mentoria#form">Quero apoiar como mentor</a>
             </div>
           </div>
+
+          <!-- Imagem do projeto 2 (fica à ESQUERDA por causa de .projeto-invertido) -->
           <div class="projeto-imagem">
             <img src="../assets/codigo-do-futuro.jpg" alt="Jovens estudando programação em computadores" />
           </div>
         </article>
 
-        <!-- PROJETO 3 -->
+        <!-- ============================================================
+             PROJETO 3
+             Volta ao layout normal (texto à esquerda, imagem à direita).
+             ============================================================ -->
         <article class="projeto-card" data-projeto="conecta-lab">
+
           <div class="projeto-conteudo">
             <span class="projeto-numero">03 / TECNOLOGIA E INCLUSÃO</span>
+
             <h2>Conecta Lab</h2>
+
             <p>
               Oficina prática em que voluntários e alunos aprendem manutenção
               de hardware e montagem de computadores a partir de eletrônicos
@@ -113,25 +190,33 @@
               recuperados são doados às famílias de alunos com melhor
               frequência escolar.
             </p>
+
             <button class="btn btn-missao" type="button" aria-expanded="false" aria-controls="missao-conecta-lab">
               Ver missão do projeto
             </button>
+
             <div class="missao-panel" id="missao-conecta-lab" hidden>
               <h3>Missão</h3>
               <p>Reduzir o descarte eletrônico e ampliar o acesso a equipamentos funcionais para estudo e trabalho.</p>
+
               <h3>Como a comunidade participa</h3>
               <p>Pessoas e empresas podem doar equipamentos, ajudar na triagem e apoiar a entrega responsável às famílias.</p>
+
+              <!-- ?assunto=doacao → formulario.js preenche "Quero doar" -->
               <a class="link-acao" href="contato.html?assunto=doacao#form">Quero fazer uma doação</a>
             </div>
           </div>
+
           <div class="projeto-imagem">
             <img src="../assets/conecta-lab.jpg" alt="Pessoa realizando manutenção em um computador" />
           </div>
         </article>
+
       </section>
     </main>
 
     <!-- Rodapé inserido via JS -->
+    <!-- O layout-push.js insere layout/footer.html aqui -->
     <div id="footer"></div>
   </body>
 </html>

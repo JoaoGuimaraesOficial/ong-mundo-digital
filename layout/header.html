@@ -1,12 +1,49 @@
+<!-- ============================================================
+     CABEÇALHO DO SITE
+     Este arquivo NÃO é uma página completa: ele é um "pedaço" de HTML
+     que o layout-push.js busca via fetch() e insere dentro de
+     <div id="header"></div> em cada página.
+     Por isso NÃO tem <!doctype>, <html>, <head> nem <body>.
+     ============================================================ -->
 
+<!-- <header> = tag semântica que representa o cabeçalho da página.
+     - class="navbar": usada pelo CSS para o layout flex (logo | menu).
+     - id="site-header": usada pelo JS (layout-push.js adiciona a classe
+       "visible" aqui para animar a entrada). -->
 <header class="navbar" id="site-header">
 
     <!-- Logo e nome da ONG -->
+    <!-- <a> = link. Ao clicar, leva para a página inicial.
+         - class="brand": estiliza o texto como logo (negrito, cor branca).
+         - data-page="index": NÃO é um atributo nativo. É um "atributo de dados"
+           (data-*) que o layout-push.js lê para definir o href correto.
+           Quando o JS roda, ele troca href="#" por href="index.html"
+           (ou "../index.html" se estiver dentro de /content/).
+         - aria-label: descreve o link para leitores de tela. Como o texto
+           visível é só "Conecta Futuro", o aria-label completa o contexto
+           ("Conecta Futuro - Página inicial").
+         - O href="#" é provisório: sem JS, não vai a lugar nenhum;
+           com JS, vira o caminho real. -->
     <a href="#" class="brand" data-page="index" aria-label="Conecta Futuro - Página inicial">
+        <!-- <strong> = negrito semântico (importância).
+             Aqui é usado só para dar peso visual ao nome da ONG. -->
         <strong>Conecta Futuro</strong>
     </a>
 
     <!-- Botão do menu mobile -->
+    <!-- <button> = botão clicável (não é link, não navega).
+         - class="nav-toggle": no CSS, começa com display: none (escondido
+           no desktop) e só aparece dentro do @media (max-width: 768px).
+         - aria-label="Abrir menu": texto para leitor de tela (o botão
+           não tem texto visível, só as 3 barrinhas).
+         - aria-expanded="false": informa ao leitor de tela que o menu
+           está FECHADO. O animation.js muda para "true"/"false" ao clicar.
+         - aria-controls="primary-nav": diz qual elemento o botão controla
+           (o <nav id="primary-nav">). Ajuda leitores de tela a associar
+           botão e menu.
+         - type="button": IMPORTANTE. Sem isso, dentro de um <form>,
+           o botão tentaria enviar o formulário. type="button" garante
+           que ele só dispara o evento de clique. -->
     <button
         class="nav-toggle"
         aria-label="Abrir menu"
@@ -14,19 +51,47 @@
         aria-controls="primary-nav"
         type="button"
     >
+        <!-- As 3 barrinhas do ícone "hambúrguer".
+             No CSS: .nav-toggle span { display: block; width: 25px; height: 3px; ... }
+             São puramente visuais (não têm texto, não têm significado semântico). -->
         <span></span>
         <span></span>
         <span></span>
     </button>
 
     <!-- Menu de navegação -->
+    <!-- <nav> = tag semântica para blocos de links de navegação.
+         - id="primary-nav": alvo do aria-controls do botão mobile.
+         - class="nav-menu": no CSS, vira display: flex (desktop) e
+           display: none/open (mobile, controlado pelo JS).
+         - aria-label="Navegação principal": descreve o menu para
+           leitores de tela (pode haver mais de um <nav> na página;
+           o aria-label diferencia este como o principal). -->
     <nav id="primary-nav" class="nav-menu" aria-label="Navegação principal">
+
+        <!-- <ul> = lista não ordenada.
+             No CSS: .nav-menu ul { display: flex; gap: 25px; list-style: none; }
+             Tira as bolinhas e coloca os itens lado a lado. -->
         <ul>
+
+            <!-- Cada <li> = um item do menu.
+                 Cada <a> tem data-page, que o layout-push.js usa para
+                 trocar href="#" pelo caminho real. -->
+
+            <!-- Início → index.html (ou ../index.html) -->
             <li><a href="#" data-page="index">Início</a></li>
+
+            <!-- Sobre → content/sobre.html (ou ../content/sobre.html) -->
             <li><a href="#" data-page="sobre">Sobre</a></li>
+
+            <!-- Projetos → content/projetos.html (ou ../content/projetos.html) -->
             <li><a href="#" data-page="projetos">Projetos</a></li>
+
+            <!-- Contato → content/contato.html (ou ../content/contato.html) -->
             <li><a href="#" data-page="contato">Contato</a></li>
+
         </ul>
+
     </nav>
     
 </header>

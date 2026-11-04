@@ -1,184 +1,194 @@
-
+<!-- Declara ao navegador que este documento usa HTML5 -->
 <!doctype html>
+
+<!-- lang="pt-BR": idioma principal da página.
+     Ajuda leitores de tela (acessibilidade) e mecanismos de busca (SEO) -->
 <html lang="pt-BR">
+  <head>
+    <!-- UTF-8: codificação que permite acentos e cedilha sem quebrar -->
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport: faz a página se ajustar à largura do dispositivo (responsividade).
+       Sem isso, o celular mostraria o site "encolhido" como no desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="description"
-    content="Conecta Futuro: iniciativa de inclusão digital e acesso à tecnologia."
-  />
+    <!-- description: texto que aparece no Google embaixo do título do site.
+       Não afeta o visual, mas ajuda no SEO -->
+    <meta
+      name="description"
+      content="Conecta Futuro: iniciativa de inclusão digital e acesso à tecnologia."
+    />
 
-  <title>Conecta Futuro | ONG de Inclusão Digital</title>
+    <!-- title: texto que aparece na aba do navegador -->
+    <title>Conecta Futuro | ONG de Inclusão Digital</title>
 
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- Liga o CSS externo. Caminho relativo: "css/style.css" está na pasta css/ -->
+    <link rel="stylesheet" href="css/style.css" />
 
-  <script src="js/layout-push.js" defer></script>
-  <script src="js/animation.js" defer></script>
-</head>
+    <!-- defer: faz o script rodar SÓ depois que o HTML inteiro for lido.
+       Sem defer, o JS poderia tentar manipular elementos que ainda não existem.
+       layout-push.js → injeta header e footer via fetch
+       animation.js  → animações de entrada + menu mobile -->
+    <script src="js/layout-push.js" defer></script>
+    <script src="js/animation.js" defer></script>
+  </head>
 
-<body>
+  <body>
+    <!-- Cabeçalho carregado pelo JavaScript.
+       O layout-push.js busca "layout/header.html" e insere aqui dentro via innerHTML.
+       Por isso esta div fica vazia no HTML: o conteúdo vem depois, via fetch -->
+    <div id="header"></div>
 
-  <!-- Cabeçalho carregado pelo JavaScript -->
-  <div id="header"></div>
+    <!-- <main> = conteúdo principal e único da página.
+       Deve existir só UM <main> por página (ajuda leitores de tela a pular o menu) -->
+    <main>
+      <!-- ================================================================
+         APRESENTAÇÃO PRINCIPAL (HERO)
+         Primeira coisa que o visitante vê ao abrir o site.
+         id="inicio" é usado pelo CSS para estilizar (#inicio { ... })
+    ================================================================ -->
+      <section id="inicio">
+        <!-- Container flex: no CSS, .inicio-container provavelmente coloca
+           texto e imagem lado a lado (display: flex).
+           Se não existir no CSS ainda, é uma classe nova a estilizar -->
+        <div class="inicio-container">
+          <!-- Conteúdo textual da seção -->
+          <div class="inicio-conteudo">
+            <!-- Texto pequeno acima do título (estilo "eyebrow").
+               Não é <p> com estilo especial; é só um <p> normal -->
+            <p>ONG de Inclusão Digital</p>
 
-  <main>
+            <!-- h1: título principal da página.
+               Só deve existir UM <h1> por página (hierarquia de títulos) -->
+            <h1>Conectando pessoas ao futuro!</h1>
 
-    <!-- APRESENTAÇÃO PRINCIPAL -->
-    <section id="inicio">
+            <!-- Parágrafo de apresentação da ONG -->
+            <p>
+              Promovemos o acesso à tecnologia e ao conhecimento digital,
+              ajudando pessoas a desenvolver novas habilidades e oportunidades.
+            </p>
 
-      <div class="inicio-container">
+            <!-- Grupo de botões de chamada para ação (CTA = call to action) -->
+            <div class="botoes">
+              <!-- href="#cursos": link âncora.
+                 Ao clicar, rola a página suavemente até a seção com id="cursos"
+                 (o "suave" vem do scroll-behavior: smooth no CSS) -->
+              <a href="#cursos" class="btn"> Conheça nossos cursos </a>
 
-        <!-- Conteúdo textual -->
-        <div class="inicio-conteudo">
-
-          <p>ONG de Inclusão Digital</p>
-
-          <h1>Conectando pessoas ao futuro!</h1>
-
-          <p>
-            Promovemos o acesso à tecnologia e ao conhecimento digital,
-            ajudando pessoas a desenvolver novas habilidades e oportunidades.
-          </p>
-
-          <div class="botoes">
-
-            <a href="#cursos" class="btn">
-              Conheça nossos cursos
-            </a>
-
-            <a href="content/sobre.html" class="btn">
-              Conheça nossa iniciativa!
-            </a>
-
+              <!-- href="content/sobre.html": link relativo para outra página.
+                 Sai da raiz, entra em content/, abre sobre.html -->
+              <a href="content/sobre.html" class="btn">
+                Conheça nossa iniciativa!
+              </a>
+            </div>
           </div>
 
+          <!-- Imagem principal (ilustrativa) -->
+          <div class="inicio-imagem">
+            <!-- src="assets/imagem-inclusao-digital.jpg": caminho relativo
+               até a pasta assets/.
+               alt: descrição para leitores de tela e caso a imagem não carregue -->
+            <img
+              src="assets/imagem-inclusao-digital.jpg"
+              alt="Representação da inclusão digital e do acesso à tecnologia"
+            />
+          </div>
         </div>
+      </section>
 
-        <!-- Imagem principal -->
-        <div class="inicio-imagem">
-
-          <img
-            src="assets/imagem-inclusao-digital.jpg"
-            alt="Representação da inclusão digital e do acesso à tecnologia"
-          />
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- APRESENTAÇÃO DA INICIATIVA -->
-    <section id="sobre">
-
-      <h2>Mais que tecnologia, oportunidades para todos.</h2>
-
-      <p>
-        A Conecta Futuro busca aproximar pessoas do mundo digital,
-        oferecendo orientação e oportunidades de aprendizado.
-      </p>
-
-      <ul>
-
-        <li>Inclusão digital e acessibilidade.</li>
-
-        <li>Aprendizado de novas habilidades.</li>
-
-        <li>Mais autonomia no uso da tecnologia.</li>
-
-      </ul>
-
-      <a href="content/sobre.html" class="btn">
-        Conheça nossa iniciativa!
-      </a>
-
-    </section>
-
-
-    <!-- CURSOS no INDEX -->
-    <section id="cursos">
-
-      <h2>Conheça nossos cursos</h2>
-
-      <p>
-        Aprenda no seu ritmo e desenvolva habilidades para o mundo digital.
-      </p>
-
-      <div class="cursos-container">
-
-        <article class="card-curso">
-
-          <h3>Informática Básica</h3>
-
-          <p>
-            Aprenda a utilizar o computador e seus principais recursos.
-          </p>
-
-          <a href="content/contato.html">Saiba mais</a>
-
-        </article>
-
-
-        <article class="card-curso">
-
-          <h3>Introdução à Programação</h3>
-
-          <p>
-            Conheça os fundamentos da programação e da lógica.
-          </p>
-
-          <a href="content/contato.html">Saiba mais</a>
-
-        </article>
-
-
-        <article class="card-curso">
-
-          <h3>Desenvolvimento Web</h3>
-
-          <p>
-            Tenha contato com a criação de páginas para a internet.
-          </p>
-
-          <a href="content/contato.html">Saiba mais</a>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- CHAMADA PARA PARTICIPAÇÃO -->
-    <section id="chamada-contato">
-
-      <div class="cta-contato">
-
-        <h2>Quer participar ou ajudar a transformar vidas?</h2>
+      <!-- ================================================================
+         APRESENTAÇÃO DA INICIATIVA (valores da ONG)
+         id="sobre" é usado pelo CSS e pelo menu (link #sobre)
+    ================================================================ -->
+      <section id="sobre">
+        <!-- h2: subtítulo, vem DEPOIS do h1 na hierarquia -->
+        <h2>Mais que tecnologia, oportunidades para todos.</h2>
 
         <p>
-          Você pode ser aluno, voluntário ou doador.
-          Seja qual for o seu jeito de contribuir,
-          existe um lugar para você na Conecta Futuro.
+          A Conecta Futuro busca aproximar pessoas do mundo digital, oferecendo
+          orientação e oportunidades de aprendizado.
         </p>
 
-        <a href="content/contato.html" class="btn">
-          Fale com a gente
-        </a>
+        <!-- Lista de valores (no CSS, #sobre ul vira chips lado a lado) -->
+        <ul>
+          <li>Inclusão digital e acessibilidade.</li>
 
-      </div>
+          <li>Aprendizado de novas habilidades.</li>
 
-    </section>
+          <li>Mais autonomia no uso da tecnologia.</li>
+        </ul>
 
-  </main>
+        <!-- Botão para a página Sobre -->
+        <a href="content/sobre.html" class="btn"> Conheça nossa iniciativa! </a>
+      </section>
 
-  <!-- Rodapé carregado pelo JavaScript -->
-  <div id="footer"></div>
+      <!-- ================================================================
+         CURSOS (prévia dos cursos na home)
+         id="cursos" é alvo do link âncora "#cursos" do hero
+    ================================================================ -->
+      <section id="cursos">
+        <h2>Conheça nossos cursos</h2>
 
-</body>
+        <p>
+          Aprenda no seu ritmo e desenvolva habilidades para o mundo digital.
+        </p>
 
+        <!-- Container dos cards (no CSS, .cursos-container usa flex + gap + flex-wrap).
+           No celular, os cards quebram de linha e empilham -->
+        <div class="cursos-container">
+          <!-- <article>: cada card é um conteúdo independente (um curso).
+             Poderia ser <div>, mas <article> é semanticamente mais correto -->
+          <article class="card-curso">
+            <h3>Informática Básica</h3>
+
+            <p>Aprenda a utilizar o computador e seus principais recursos.</p>
+
+            <!-- Link para a página de contato -->
+            <a href="content/contato.html">Saiba mais</a>
+          </article>
+
+          <article class="card-curso">
+            <h3>Introdução à Programação</h3>
+
+            <p>Conheça os fundamentos da programação e da lógica.</p>
+
+            <a href="content/contato.html">Saiba mais</a>
+          </article>
+
+          <article class="card-curso">
+            <h3>Desenvolvimento Web</h3>
+
+            <p>Tenha contato com a criação de páginas para a internet.</p>
+
+            <a href="content/contato.html">Saiba mais</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================================================================
+         CHAMADA PARA PARTICIPAÇÃO (CTA final)
+         Bloco escuro que fecha a home convidando o visitante a ir para Contato
+    ================================================================ -->
+      <section id="chamada-contato">
+        <!-- .cta-contato: caixa azul-escura centralizada com cantos arredondados.
+           Estilizada no CSS com background var(--navy), padding, border-radius, etc. -->
+        <div class="cta-contato">
+          <h2>Quer participar ou ajudar a transformar vidas?</h2>
+
+          <p>
+            Você pode ser aluno, voluntário ou doador. Seja qual for o seu jeito
+            de contribuir, existe um lugar para você na Conecta Futuro.
+          </p>
+
+          <!-- Botão que leva para a página de contato -->
+          <a href="content/contato.html" class="btn"> Fale com a gente </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé carregado pelo JavaScript.
+       layout-push.js busca "layout/footer.html" e insere aqui dentro.
+       O JS também atualiza o ano no rodapé (#footer-year) e ajusta os links -->
+    <div id="footer"></div>
+  </body>
 </html>

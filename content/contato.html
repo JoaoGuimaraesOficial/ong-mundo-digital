@@ -1,45 +1,78 @@
 <!-- Declara que o documento usa HTML5 -->
 <!doctype html>
+
 <!-- Idioma da página: português do Brasil -->
+<!-- lang="pt-BR": ajuda leitores de tela e buscadores -->
 <html lang="pt-BR">
+
   <head>
     <!-- Codificação de caracteres (acentos) -->
+    <!-- UTF-8: permite "ç", "ã", "é" etc. sem quebrar -->
     <meta charset="UTF-8" />
+
     <!-- Responsividade: ajusta a página à largura do dispositivo -->
+    <!-- viewport: sem isso, o celular mostraria o site "encolhido" -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Descrição para mecanismos de busca -->
+    <!-- Aparece no Google embaixo do título (SEO) -->
     <meta
       name="description"
       content="Fale com a Conecta Futuro: dúvidas, voluntariado e doações."
     />
+
     <!-- Título da aba do navegador -->
     <title>Contato - Conecta Futuro</title>
+
     <!-- Esta página está dentro de /content, por isso os caminhos sobem uma pasta ("../") -->
+    <!-- "../css/style.css" → sobe uma pasta e entra em css/ -->
     <link rel="stylesheet" href="../css/style.css" />
+
     <!-- Carrega header e footer automaticamente -->
+    <!-- defer: roda após o HTML ser lido.
+         Busca layout/header.html e layout/footer.html via fetch -->
     <script src="../js/layout-push.js" defer></script>
+
     <!-- Animações e menu mobile -->
+    <!-- Anima as <section> (fade + subida) e ativa o hambúrguer -->
     <script src="../js/animation.js" defer></script>
+
     <!-- Validação do formulário de contato -->
+    <!-- Este script escuta o submit do #form e valida os campos -->
     <script src="../js/formulario.js" defer></script>
   </head>
+
   <body>
     <!-- Local onde o cabeçalho será inserido via JavaScript -->
+    <!-- O layout-push.js insere layout/header.html aqui -->
     <div id="header"></div>
 
+    <!-- <main> = conteúdo principal e único da página -->
     <main>
+
+      <!-- Seção de contato.
+           id="contato" → usado pelo CSS (#contato) -->
       <section id="contato">
+
         <!-- Container flex que coloca formulário e voluntariado lado a lado -->
+        <!-- No mobile (≤ 768px), empilha: formulário em cima, voluntariado embaixo -->
         <div class="contato-flex">
-          <!-- COLUNA ESQUERDA: FORMULÁRIO-->
+
+          <!-- ============================================================
+               COLUNA ESQUERDA: FORMULÁRIO
+               ============================================================ -->
           <div class="contato-form">
+
+            <!-- h1: título principal da página (único) -->
             <h1>Entre em contato</h1>
+
             <p>
               Tem alguma dúvida ou quer participar dos nossos projetos? Envie
               uma mensagem!
             </p>
 
             <!-- Dados de contato da ONG (fictícios, por ser um protótipo) -->
+            <!-- <strong> = negrito semântico (importância) -->
             <p><strong>E-mail:</strong> apenasilustracao@hotmail.com</p>
             <p><strong>Telefone:</strong> (00) 00000-0000</p>
             <p>
@@ -47,32 +80,66 @@
             </p>
 
             <!-- Aviso obrigatório: o envio é só simulado -->
+            <!-- .aviso = caixa amarela com borda laranja (definida no CSS) -->
             <p class="aviso">
               <strong>Atenção:</strong> este é um protótipo acadêmico. O envio é
               apenas simulado: nenhum e-mail é enviado e nenhum dado é coletado.
             </p>
 
             <!-- Formulário. "novalidate" desativa as mensagens padrão do navegador,
-                 pois a validação é feita pelo formulario.js -->
+                 pois a validação é feita pelo formulario.js.
+                 
+                 Por que novalidate?
+                 - Sem ele, o navegador mostraria tooltips nativos ao clicar em Enviar
+                 - Com ele, o formulario.js controla TODA a validação (mensagens
+                   personalizadas, borda vermelha, retorno no #retorno)
+                 
+                 O id="form" é usado pelo formulario.js para:
+                 - addEventListener("submit", ...)
+                 - form.reset() -->
             <form id="form" novalidate>
-              <!-- "for" liga o rótulo ao campo com o mesmo id (acessibilidade) -->
+
+              <!-- "for" liga o rótulo ao campo com o mesmo id (acessibilidade).
+                   Clicar no texto "Nome completo" foca o campo #nome. -->
               <label for="nome">Nome completo</label>
-              <!-- Campo de texto; exige no mínimo 3 caracteres -->
+
+              <!-- Campo de texto; exige no mínimo 3 caracteres.
+                   - id="nome" → liga ao <label for="nome">
+                   - name="nome" → nome do campo (útil para envio real)
+                   - type="text" → campo de texto comum
+                   - minlength="3" → mínimo de 3 caracteres (validação nativa)
+                   - required → campo obrigatório (validação nativa)
+                   Obs.: o formulario.js também valida (redundância proposital) -->
               <input id="nome" name="nome" type="text" minlength="3" required />
-              <!-- Área onde o JS mostra o erro deste campo -->
+
+              <!-- Área onde o JS mostra o erro deste campo.
+                   - class="erro" → estilo vermelho, min-height para não "pular"
+                   - id="erro-nome" → o formulario.js escreve aqui via textContent -->
               <small class="erro" id="erro-nome"></small>
 
               <label for="email">E-mail</label>
-              <!-- type="email" faz o navegador checar o formato do e-mail -->
+
+              <!-- type="email" faz o navegador checar o formato do e-mail.
+                   O formulario.js usa campoEmail.checkValidity() para essa checagem.
+                   required → obrigatório. -->
               <input id="email" name="email" type="email" required />
               <small class="erro" id="erro-email"></small>
 
               <label for="assunto">Assunto</label>
+
+              <!-- Campo de texto simples.
+                   Pode ser pré-preenchido pelo formulario.js se a URL tiver
+                   ?assunto=voluntariado, ?assunto=mentoria ou ?assunto=doacao
+                   (vindo dos links dos projetos). -->
               <input id="assunto" name="assunto" type="text" required />
               <small class="erro" id="erro-assunto"></small>
 
               <label for="msg">Mensagem</label>
-              <!-- Campo de texto longo com 4 linhas visíveis; mínimo de 10 caracteres -->
+
+              <!-- Campo de texto longo com 4 linhas visíveis; mínimo de 10 caracteres.
+                   - rows="4" → altura inicial de 4 linhas
+                   - minlength="10" → mínimo de 10 caracteres
+                   - O CSS permite redimensionar só na vertical (resize: vertical) -->
               <textarea
                 id="msg"
                 name="msg"
@@ -82,32 +149,54 @@
               ></textarea>
               <small class="erro" id="erro-msg"></small>
 
-              <!-- Botão que dispara o evento "submit" do formulário -->
+              <!-- Botão que dispara o evento "submit" do formulário.
+                   type="submit" → dispara submit (diferente de type="button")
+                   class="btn" → estilo padrão de botão -->
               <button class="btn" type="submit">Enviar</button>
 
-              <!-- Mensagem final de sucesso/erro; role="status" avisa leitores de tela -->
+              <!-- Mensagem final de sucesso/erro; role="status" avisa leitores de tela.
+                   - role="status" → leitor de tela ANUNCIA o texto quando ele muda
+                   - O formulario.js escreve aqui via textContent:
+                     * Sucesso: "Confirmação simulada: ..."
+                     * Erro: "Corrija os campos destacados em vermelho." -->
               <p id="retorno" role="status"></p>
             </form>
           </div>
 
-          <!-- COLUNA DIREITA: VOLUNTARIADO-->
-          <!-- <aside> = conteúdo complementar; o id permite links diretos (#como-ajudar) -->
+          <!-- ============================================================
+               COLUNA DIREITA: VOLUNTARIADO
+               <aside> = conteúdo complementar (não é o foco principal).
+               id="como-ajudar" → permite links diretos (#como-ajudar).
+               O header tem um botão "Doe agora" com data-section="como-ajudar",
+               que o layout-push.js aponta para contato.html#como-ajudar.
+               ============================================================ -->
           <aside class="contato-voluntario" id="como-ajudar">
+
             <h2>Como ajudar / Seja voluntário</h2>
+
             <p>Você pode participar de várias formas:</p>
-            <!-- Lista de formas de ajudar -->
+
+            <!-- Lista de formas de ajudar.
+                 .lista → no CSS, restaura as bolinhas (que o reset removeu)
+                 e define padding-left: 22px para indentar. -->
             <ul class="lista">
               <li>Dando aulas ou monitorias aos sábados.</li>
               <li>Doando computadores e equipamentos.</li>
               <li>Divulgando nossos cursos na sua comunidade.</li>
               <li>Financiando material didático e lanches.</li>
             </ul>
+
             <p>
               Informe no assunto:
-              <!-- <em> = ênfase (itálico) -->
+
+              <!-- <em> = ênfase (itálico).
+                   Aqui é usado para destacar as frases sugeridas de assunto,
+                   que o formulario.js reconhece. -->
               <em>"Quero ser voluntário"</em> ou <em>"Quero doar"</em>.
             </p>
+
             <p>
+              <!-- <strong> = negrito semântico -->
               <strong>Doações em dinheiro</strong> podem ser feitas por PIX
               simulado (este protótipo não processa pagamentos).
             </p>
@@ -117,6 +206,8 @@
     </main>
 
     <!-- Local onde o rodapé será inserido via JavaScript -->
+    <!-- O layout-push.js insere layout/footer.html aqui.
+         Também atualiza o ano (#footer-year) e ajusta os links -->
     <div id="footer"></div>
   </body>
 </html>

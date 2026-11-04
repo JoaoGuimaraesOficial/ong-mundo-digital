@@ -1,57 +1,141 @@
+<!-- ============================================================
+     RODAPÉ DO SITE
+     Assim como o header.html, este arquivo é um FRAGMENTO de HTML
+     (não tem <!doctype>, <html>, <head> nem <body>).
+     O layout-push.js busca este arquivo via fetch() e insere dentro
+     de <div id="footer"></div> em cada página.
+     ============================================================ -->
+
 <!-- Rodapé do site -->
+<!-- <footer> = tag semântica do rodapé da página.
+     - class="footer": no CSS, define fundo azul escuro (var(--navy)),
+       cor branca e margin-top: 50px para separar do conteúdo. -->
 <footer class="footer">
+
   <!-- Conteúdo principal do rodapé -->
+  <!-- <div class="footer-container"> = "grade" de 4 colunas.
+       No CSS: display: grid; grid-template-columns: repeat(4, 1fr);
+       Em telas ≤ 768px vira 2 colunas, e em ≤ 480px vira 1 coluna
+       (definido nos @media do style.css). -->
   <div class="footer-container">
-    <!-- Coluna 1: Sobre a ONG -->
+
+    <!-- ============================================================
+         COLUNA 1: Sobre a ONG
+         Texto institucional curto, sem links.
+         ============================================================ -->
     <div class="footer-about">
+      <!-- h3: título da coluna. É <h3> (e não <h2>) porque o rodapé
+           é secundário em relação ao <h1>/<h2> do conteúdo principal.
+           O CSS define cor branca e font-size 22px. -->
       <h3>Conecta Futuro</h3>
 
+      <!-- Parágrafo institucional. O CSS deixa fonte 14px e cor #e8f1fa
+           (um "branco azulado" para não ficar 100% branco). -->
       <p>
         Promovemos a inclusão digital e ampliamos oportunidades por meio da
         tecnologia e da educação.
       </p>
     </div>
 
-    <!-- Coluna 2: Links rápidos -->
+    <!-- ============================================================
+         COLUNA 2: Links rápidos
+         Repete o menu do header, mas com caminhos JÁ ESCRITOS no HTML
+         (não depende só do JS para funcionar).
+         ============================================================ -->
     <div class="footer-links">
+      <!-- h4: subtítulo menor que o h3. CSS: 17px, branco. -->
       <h4>Links rápidos</h4>
 
+      <!-- Lista de links. O CSS tira as bolinhas:
+           .footer-links ul { list-style: none; padding: 0; } -->
       <ul>
+        <!-- Diferente do header (que usa href="#"), aqui os href
+             já estão preenchidos manualmente ("../index.html").
+             Por quê? Porque, mesmo se o JS falhar, os links do rodapé
+             continuam funcionando. O data-page permanece como
+             "backup" — o layout-push.js ainda pode sobrescrever
+             o href se quiser.
+             
+             "../index.html" → sobe uma pasta (de /content/ para a raiz)
+             e abre index.html. -->
         <li><a href="../index.html" data-page="index">Início</a></li>
+
+        <!-- "../content/sobre.html" → sobe uma pasta e entra em content/.
+             Funciona tanto se a página atual está em /content/
+             (sobre, projetos, contato) quanto na raiz (index). -->
         <li><a href="../content/sobre.html" data-page="sobre">Sobre</a></li>
+
         <li>
           <a href="../content/projetos.html" data-page="projetos">Projetos</a>
         </li>
+
         <li>
           <a href="../content/contato.html" data-page="contato">Contato</a>
         </li>
       </ul>
     </div>
 
-    <!-- Coluna 3: Dados de contato ilustrativos -->
+    <!-- ============================================================
+         COLUNA 3: Dados de contato ilustrativos
+         Texto puro, sem links. E-mail/telefone/endereço fictícios
+         (protótipo acadêmico).
+         ============================================================ -->
     <div class="footer-contact">
       <h4>Contato</h4>
 
+      <!-- Cada <p> é uma linha. O CSS define fonte 14px, cor #e8f1fa
+           e margin-bottom: 10px para separar as linhas. -->
       <p>apenasilustracao@hotmail.com</p>
       <p>(00) 00000-0000</p>
       <p>São Paulo - SP</p>
     </div>
 
-    <!-- Coluna 4: Redes sociais -->
+    <!-- ============================================================
+         COLUNA 4: Redes sociais
+         Aqui os links são reais (<a>) com imagem + texto dentro.
+         ============================================================ -->
     <div class="footer-social">
       <h4>Redes sociais</h4>
 
+      <!-- Container extra para as 3 redes. O CSS de .footer-social
+           usa flex-direction: column, então cada <a> empilha na vertical.
+           A <div class="redes-sociais"> agrupa os 3 links — se ela não
+           tiver CSS próprio, os <a> ficam empilhados normalmente
+           (comportamento padrão de <a> que é inline). -->
       <div class="redes-sociais">
+
+        <!-- FACEBOOK -->
+        <!-- - href="#": link placeholder (não vai a lugar nenhum).
+             - target="_blank": abre em nova aba. É comum para redes sociais,
+               para o visitante não sair do site.
+             - rel="noopener noreferrer": MEDIDA DE SEGURANÇA.
+               * noopener: impede que a página aberta acesse window.opener
+                 (proteção contra "tabnabbing").
+               * noreferrer: não envia o endereço da página atual como
+                 referência para o destino.
+               Esses dois atributos são recomendados sempre que se usa
+               target="_blank".
+             - aria-label="Facebook": descreve o link para leitores de tela
+               (a imagem tem alt="" e o texto "Facebook" está em um <span>). -->
         <a
           href="#"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
         >
+          <!-- Imagem do ícone. alt="" (vazio) é INTENCIONAL: como o link
+               já tem texto visível ("Facebook" no <span>) e aria-label
+               no <a>, repetir no alt seria redundante para leitores de tela.
+               Ícones decorativos ao lado de texto costumam ter alt="". -->
           <img src="../assets/face.png" alt="" />
+
+          <!-- Texto visível do link. O CSS de .footer-social a
+               (display: flex; align-items: center; gap: 7px) coloca
+               imagem e texto lado a lado. -->
           <span>Facebook</span>
         </a>
 
+        <!-- INSTAGRAM — mesma estrutura do Facebook -->
         <a
           href="#"
           target="_blank"
@@ -62,6 +146,9 @@
           <span>Instagram</span>
         </a>
 
+        <!-- X (antigo Twitter) — mesma estrutura -->
+        <!-- aria-label="X" fica curto, mas o texto visível "X (Novo twitter)"
+             complementa a informação para quem vê a tela. -->
         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X">
           <img src="../assets/x.png" alt="" />
           <span>X (Novo twitter)</span>
@@ -70,9 +157,21 @@
     </div>
   </div>
 
-  <!-- Faixa inferior: direitos autorais -->
+  <!-- ============================================================
+       FAIXA INFERIOR: direitos autorais
+       Separada do bloco de 4 colunas por uma linha superior.
+       CSS: .footer-bottom { border-top: 1px solid rgba(255,255,255,0.2);
+                             text-align: center; padding: 18px 20px; }
+       ============================================================ -->
   <div class="footer-bottom">
     <p>
+      <!-- © = símbolo de copyright (entidade HTML para o caractere ©) -->
+      <!-- <span id="footer-year">2026</span>: o "2026" é apenas um valor
+           padrão. O layout-push.js busca esse id e substitui pelo ano
+           atual:
+             const ano = footer.querySelector("#footer-year");
+             if (ano) ano.textContent = new Date().getFullYear();
+           Assim o rodapé nunca fica "desatualizado". -->
       © <span id="footer-year">2026</span> Conecta Futuro. Todos os direitos
       reservados.
     </p>

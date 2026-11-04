@@ -1,42 +1,72 @@
+<!-- Declara ao navegador que este documento usa HTML5 -->
 <!doctype html>
+
+<!-- lang="pt-BR": idioma principal da página.
+     Ajuda leitores de tela (acessibilidade) e mecanismos de busca (SEO) -->
 <html lang="pt-BR">
+
   <head>
     <!-- Configurações do documento -->
+
+    <!-- UTF-8: codificação que permite acentos e cedilha sem quebrar -->
     <meta charset="UTF-8" />
+
+    <!-- viewport: faz a página se ajustar à largura do dispositivo (responsividade).
+         Sem isso, o celular mostraria o site "encolhido" como no desktop -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Descrição da página -->
+    <!-- Aparece no Google embaixo do título do site.
+         Não afeta o visual, mas ajuda no SEO -->
     <meta
       name="description"
       content="Conheça a história, a missão e o público atendido pela ONG Conecta Futuro."
     />
 
+    <!-- Texto que aparece na aba do navegador -->
     <title>Sobre - Conecta Futuro</title>
 
     <!-- Arquivo de estilos -->
+    <!-- Caminho com "../" porque esta página está dentro de /content/.
+         "../css/style.css" → sobe uma pasta e entra em css/ -->
     <link rel="stylesheet" href="../css/style.css" />
 
     <!-- Carregamento do header e footer -->
+    <!-- defer: roda só depois que o HTML inteiro for lido.
+         Sem defer, o JS poderia tentar manipular #header e #footer
+         antes deles existirem no DOM.
+         Este script busca layout/header.html e layout/footer.html via fetch -->
     <script src="../js/layout-push.js" defer></script>
 
     <!-- Animações e menu mobile -->
+    <!-- Controla as animações de scroll (.reveal) e o hambúrguer -->
     <script src="../js/animation.js" defer></script>
 
     <!-- Interação do painel de ajuda -->
+    <!-- Escuta o botão #btn-info e alterna o painel #painel-info -->
     <script src="../js/interacao.js" defer></script>
   </head>
 
   <body>
     <!-- Cabeçalho carregado pelo JavaScript -->
+    <!-- O layout-push.js insere layout/header.html aqui dentro via innerHTML -->
     <div id="header"></div>
 
+    <!-- <main> = conteúdo principal e único da página -->
     <main>
       <!-- Apresentação da ONG -->
+      <!-- .container-sobre = layout flex de 2 colunas:
+           texto à esquerda (.card-sobre), imagem à direita (.imagem-sobre).
+           No mobile (≤ 768px), empilha: texto em cima, imagem embaixo -->
       <div class="container-sobre">
+
         <!-- Conteúdo textual -->
         <div class="card-sobre">
+          <!-- h1: título principal. Só existe UM h1 por página -->
           <h1>Sobre Nós</h1>
 
+          <!-- Parágrafo de apresentação da ONG.
+               .sobretexto = fonte 18px, alinhamento justificado -->
           <p class="sobretexto">
             A Conecta Futuro é uma ONG educacional que tem como missão promover
             a inclusão digital e ampliar oportunidades por meio da tecnologia e
@@ -60,6 +90,12 @@
           </p>
 
           <!-- Botão para mostrar ou ocultar o painel de ajuda -->
+          <!-- - id="btn-info": alvo do interacao.js
+               - class="btn": estilo padrão de botão
+               - type="button": evita submit acidental (não está em form, mas é boa prática)
+               - aria-expanded="false": informa ao leitor de tela que o painel está FECHADO
+                 (o JS muda para "true"/"false" ao clicar)
+               - aria-controls="painel-info": diz qual elemento o botão controla -->
           <button
             id="btn-info"
             class="btn"
@@ -71,6 +107,9 @@
           </button>
 
           <!-- Painel de informações -->
+          <!-- - id="painel-info": alvo do botão (aria-controls)
+               - class="painel": estilo de caixa roxa com borda lateral
+               - style="display: none": começa OCULTO (o JS troca para "block") -->
           <div id="painel-info" class="painel" style="display: none">
             <p>
               Oferecemos cursos gratuitos, empréstimo de computadores no
@@ -83,6 +122,9 @@
 
         <!-- Imagem de apresentação -->
         <div class="imagem-sobre">
+          <!-- src="../assets/...": sobe uma pasta e entra em assets/
+               alt: descrição para leitores de tela
+               width: largura sugerida (o CSS ainda controla o tamanho real) -->
           <img
             src="../assets/professoraensinando.jpg"
             alt="Jovens estudando juntos em uma sala de aula"
@@ -92,14 +134,23 @@
       </div>
 
       <!-- Missão geral da ONG -->
+      <!-- Esta <section> está FORA do .container-sobre, então ocupa a LINHA INTEIRA.
+           aria-labelledby="titulo-missao" associa a seção ao título com id="titulo-missao"
+           (leitor de tela lê: "região: Nossa missão") -->
       <section class="missao-ong" aria-labelledby="titulo-missao">
+        <!-- id="titulo-missao": referenciado pelo aria-labelledby da section -->
         <h2 id="titulo-missao">Nossa missão</h2>
 
+        <!-- Parágrafo de destaque (frase-âncora em roxo, fonte maior) -->
         <p class="missao-destaque">
           Queremos tornar a tecnologia mais acessível e mostrar que todos podem
           fazer parte do mundo digital.
         </p>
 
+        <!-- Parágrafos da missão.
+             .sobretexto dentro de .missao-ong tem fonte 16px (não 18px),
+             e no desktop (≥ 900px) flui em 2 colunas (column-count: 2).
+             No mobile, volta a 1 coluna. -->
         <p class="sobretexto">
           Vivemos em uma época em que a tecnologia está presente em quase tudo:
           na procura por um emprego, nos estudos, no acesso a serviços e até na
@@ -126,8 +177,13 @@
         </p>
 
         <!-- Pilares que orientam o trabalho da ONG -->
+        <!-- .missao-pilares = lista flex de 3 cards lado a lado
+             (cada <li> vira um cartão branco com sombra) -->
         <ul class="missao-pilares">
           <li>
+            <!-- <strong> aqui é usado para o NOME do pilar.
+                 No CSS: .missao-pilares strong { display: block; color: var(--roxo); }
+                 → aparece em linha própria, acima do texto -->
             <strong>Educar</strong>
             Incentivar o aprendizado e o uso consciente e seguro da tecnologia.
           </li>
@@ -147,6 +203,8 @@
     </main>
 
     <!-- Rodapé carregado pelo JavaScript -->
+    <!-- O layout-push.js insere layout/footer.html aqui dentro via innerHTML.
+         O JS também atualiza o ano (#footer-year) e ajusta os links -->
     <div id="footer"></div>
   </body>
 </html>

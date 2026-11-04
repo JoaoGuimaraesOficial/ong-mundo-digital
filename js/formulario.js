@@ -9,6 +9,17 @@ const erroAssunto = document.getElementById("erro-assunto");
 const erroMsg = document.getElementById("erro-msg");
 const retorno = document.getElementById("retorno");
 
+// Os links dos projetos podem sugerir um assunto sem impedir a edição.
+const assuntoSugerido = new URLSearchParams(window.location.search).get("assunto");
+if (campoAssunto && assuntoSugerido) {
+  const assuntos = {
+    voluntariado: "Quero ser voluntário",
+    mentoria: "Quero apoiar como mentor",
+    doacao: "Quero doar",
+  };
+  campoAssunto.value = assuntos[assuntoSugerido] || "";
+}
+
 // Se a página não tiver o form, sai sem erro
 if (form) {
   function mostrarErro(campo, areaErro, texto) {

@@ -1,24 +1,36 @@
+<!-- Declara que o documento usa HTML5 -->
 <!doctype html>
+<!-- Idioma da página -->
 <html lang="pt-BR">
   <head>
+    <!-- Codificação de caracteres -->
     <meta charset="UTF-8" />
+    <!-- Responsividade -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Descrição para buscadores -->
     <meta
       name="description"
       content="Conheça os projetos de inclusão digital da ONG Conecta Futuro."
     />
     <title>Projetos - Conecta Futuro</title>
+    <!-- Caminhos com "../" porque a página está na pasta /content -->
     <link rel="stylesheet" href="../css/style.css" />
+    <!-- Injeta header e footer -->
     <script src="../js/layout-push.js" defer></script>
+    <!-- Animações e menu mobile -->
     <script src="../js/animation.js" defer></script>
+    <!-- Abre/fecha os painéis de missão dos projetos -->
     <script src="../js/interacao.js" defer></script>
   </head>
   <body>
+    <!-- Cabeçalho inserido via JS -->
     <div id="header"></div>
 
     <main>
       <section id="projetos">
+        <!-- Introdução da página -->
         <div class="projetos-introducao">
+          <!-- Texto pequeno acima do título (estilo "eyebrow") -->
           <span class="eyebrow">Impacto em ação</span>
           <h1>Nossos Projetos</h1>
           <p>
@@ -28,7 +40,9 @@
           </p>
         </div>
 
+        <!-- PROJETO 1. data-projeto é um atributo próprio para identificar o card -->
         <article class="projeto-card" data-projeto="primeiros-passos">
+          <!-- Lado do texto -->
           <div class="projeto-conteudo">
             <span class="projeto-numero">01 / EDUCAÇÃO DIGITAL</span>
             <h2>Primeiros Passos Digitais</h2>
@@ -38,22 +52,29 @@
               navegação segura na internet, digitação e ferramentas de
               comunicação.
             </p>
+            <!-- Botão que controla o painel abaixo:
+                 aria-expanded = estado (aberto/fechado) para leitores de tela;
+                 aria-controls = id do painel que ele controla -->
             <button class="btn btn-missao" type="button" aria-expanded="false" aria-controls="missao-primeiros-passos">
               Ver missão do projeto
             </button>
+            <!-- Painel começa oculto (atributo "hidden"); o interacao.js o exibe -->
             <div class="missao-panel" id="missao-primeiros-passos" hidden>
               <h3>Missão</h3>
               <p>Dar autonomia para que pessoas de diferentes idades usem a tecnologia com segurança no dia a dia.</p>
               <h3>Como a comunidade participa</h3>
               <p>Voluntários podem acompanhar as oficinas, ensinar tarefas simples e indicar participantes que precisam de apoio.</p>
+              <!-- Link para o contato com "?assunto=" (o formulario.js preenche o campo assunto) e "#form" leva ao formulário -->
               <a class="link-acao" href="contato.html?assunto=voluntariado#form">Quero ser voluntário</a>
             </div>
           </div>
+          <!-- Lado da imagem; "alt" descreve a imagem para acessibilidade -->
           <div class="projeto-imagem">
             <img src="../assets/primeiros-passos.jpg" alt="Pessoa aprendendo a utilizar um computador" />
           </div>
         </article>
 
+        <!-- PROJETO 2. "projeto-invertido" troca a ordem texto/imagem (imagem à esquerda) -->
         <article class="projeto-card projeto-invertido" data-projeto="codigo-futuro">
           <div class="projeto-conteudo">
             <span class="projeto-numero">02 / PROGRAMAÇÃO</span>
@@ -80,6 +101,7 @@
           </div>
         </article>
 
+        <!-- PROJETO 3 -->
         <article class="projeto-card" data-projeto="conecta-lab">
           <div class="projeto-conteudo">
             <span class="projeto-numero">03 / TECNOLOGIA E INCLUSÃO</span>
@@ -109,6 +131,7 @@
       </section>
     </main>
 
+    <!-- Rodapé inserido via JS -->
     <div id="footer"></div>
   </body>
 </html>

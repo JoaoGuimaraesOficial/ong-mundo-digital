@@ -1,6 +1,9 @@
+<!-- Rodapé do site: fica em layout/footer.html e é injetado pelo layout-push.js em todas as páginas -->
 <footer class="footer">
+    <!-- Grade com 4 colunas (no CSS) -->
     <div class="footer-container">
 
+        <!-- Coluna 1: sobre a ONG -->
         <div class="footer-about">
             <h3>Conecta Futuro</h3>
             <p>
@@ -9,9 +12,11 @@
             </p>
         </div>
 
+        <!-- Coluna 2: links rápidos -->
         <div class="footer-links">
             <h4>Links rápidos</h4>
             <ul>
+                <!-- href="#" é provisório; o JS troca pelo caminho real conforme o data-page -->
                 <li><a href="#" data-page="index">Início</a></li>
                 <li><a href="#" data-page="sobre">Sobre nós</a></li>
                 <li><a href="#" data-page="projetos">Projetos</a></li>
@@ -20,6 +25,7 @@
             </ul>
         </div>
 
+        <!-- Coluna 3: dados de contato (fictícios) -->
         <div class="footer-contact">
             <h4>Contato</h4>
             <p>apenasilustracao@hotmail.com</p>
@@ -27,6 +33,7 @@
             <p>São Paulo - SP</p>
         </div>
 
+        <!-- Coluna 4: transparência / créditos das imagens -->
         <div class="footer-social">
             <h4>Transparência</h4>
             <p>Consulte a origem das imagens e materiais usados no projeto.</p>
@@ -35,7 +42,9 @@
 
     </div>
 
+    <!-- Faixa inferior com os direitos autorais -->
     <div class="footer-bottom">
+        <!-- O ano é atualizado automaticamente pelo JS (o 2026 é só um valor padrão) -->
         <p>© <span id="footer-year">2026</span> Conecta Futuro. Todos os direitos reservados.</p>
     </div>
 </footer>

@@ -77,3 +77,26 @@ Também é possível iniciar um servidor local pelo terminal, dentro da pasta pr
 
 ```bash
 py -m http.server 5500
+
+## Créditos
+
+Este projeto é um protótipo acadêmico fictício, sem fins lucrativos, desenvolvido para a disciplina de Desenvolvimento Web. Todos os dados de contato, endereços e informações institucionais da Conecta Futuro são fictícios e não representam uma organização real.
+
+### Imagens
+
+As imagens usadas neste site foram retiradas dos seguintes sites:
+
+- **x.png:** Acervo próprio do grupo
+- **insta.png:** Acervo próprio do grupo
+- **face.png:** Acervo próprio do grupo
+- **face.png:** Magnific (https://www.magnific.com/)
+- **primeiros-passos.jpg:** Magnific (https://www.magnific.com/)
+- **professoraensinando.jpg:** Magnific (https://www.magnific.com/)
+- **codigo-do-futuro.jpg:** Magnific (https://www.magnific.com/)
+- **conecta-lab.jpg:** Magnific (https://www.magnific.com/)
+
+Caso alguma imagem tenha sido produzida pelo próprio grupo, basta substituir a linha correspondente por "Acervo próprio do grupo".
+
+### Recursos de terceiros
+
+Não foram utilizadas bibliotecas, frameworks ou dependências externas. Todo o código foi escrito com HTML5, CSS3 e JavaScript nativo.

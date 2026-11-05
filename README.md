@@ -31,9 +31,9 @@ O site é composto por quatro páginas:
 
 O projeto conta com duas funcionalidades principais em JavaScript:
 
-1. **Validação do formulário de contato (`js/formulario.js`):** verifica nome, e-mail, assunto e mensagem com regras próprias (mínimo de caracteres, formato de e-mail válido e campos obrigatórios). Mostra mensagens de erro por campo, destaca os campos inválidos em vermelho e exibe uma confirmação simulada ao final. Também pré-preenche o assunto quando o visitante chega de um link dos projetos.
+1. **Validação do formulário de contato (`js/formulario.js`):** verifica nome, e-mail, assunto e mensagem com regras próprias, incluindo quantidade mínima de caracteres, formato de e-mail válido e preenchimento obrigatório dos campos. Mostra mensagens de erro por campo, destaca os campos inválidos em vermelho e exibe uma confirmação simulada após o preenchimento correto. Também pré-preenche o assunto quando o visitante chega por meio de um link dos projetos.
 
-2. **Painéis interativos de mostrar e ocultar (`js/interacao.js`):** controla o painel de ajuda da página Sobre (botão "Mostrar como podemos ajudar você") e os painéis de missão de cada projeto na página Projetos (botão "Ver missão do projeto"). Os atributos `aria-expanded` e `aria-controls` são atualizados a cada clique para manter a acessibilidade.
+2. **Painéis interativos de mostrar e ocultar (`js/interacao.js`):** controla o painel de ajuda da página Sobre, por meio do botão "Mostrar como podemos ajudar você", e os painéis de missão de cada projeto na página Projetos, por meio do botão "Ver missão do projeto". Os atributos `aria-expanded` e `aria-controls` são atualizados a cada clique para auxiliar na acessibilidade.
 
 ## Funcionalidades desenvolvidas
 
@@ -45,7 +45,7 @@ Para tornar o site mais organizado e interativo, foram implementados os seguinte
 - **Projetos expansíveis:** cada iniciativa possui um botão que permite visualizar ou ocultar informações sobre sua missão.
 - **Formulário com validação:** verifica o preenchimento do nome, e-mail, assunto e mensagem antes de apresentar o retorno ao usuário.
 - **Confirmação de envio simulado:** apresenta uma mensagem após o preenchimento correto, deixando claro que o formulário é demonstrativo.
-- **Animações de entrada:** elementos da página aparecem gradualmente durante a navegação, respeitando a configuração de preferência por movimentos reduzidos do dispositivo.
+- **Animações de entrada:** elementos da página aparecem gradualmente durante a navegação, respeitando a preferência do dispositivo por movimentos reduzidos.
 - **Layout responsivo:** organização dos elementos para proporcionar uma boa visualização em telas de diferentes tamanhos.
 
 ## Tecnologias utilizadas
@@ -77,6 +77,11 @@ Também é possível iniciar um servidor local pelo terminal, dentro da pasta pr
 
 ```bash
 py -m http.server 5500
+```
+
+Depois, abra o navegador e acesse:
+
+`http://localhost:5500`
 
 ## Créditos
 
@@ -84,19 +89,17 @@ Este projeto é um protótipo acadêmico fictício, sem fins lucrativos, desenvo
 
 ### Imagens
 
-As imagens usadas neste site foram retiradas dos seguintes sites:
+As imagens utilizadas no site estão identificadas conforme sua origem:
 
-- **x.png:** Acervo próprio do grupo
-- **insta.png:** Acervo próprio do grupo
-- **face.png:** Acervo próprio do grupo
-- **face.png:** Magnific (https://www.magnific.com/)
-- **primeiros-passos.jpg:** Magnific (https://www.magnific.com/)
-- **professoraensinando.jpg:** Magnific (https://www.magnific.com/)
-- **codigo-do-futuro.jpg:** Magnific (https://www.magnific.com/)
-- **conecta-lab.jpg:** Magnific (https://www.magnific.com/)
-
-Caso alguma imagem tenha sido produzida pelo próprio grupo, basta substituir a linha correspondente por "Acervo próprio do grupo".
+- **face.png:** Acervo próprio do grupo.
+- **insta.png:** Acervo próprio do grupo.
+- **x.png:** Acervo próprio do grupo.
+- **primeiros-passos.jpg:** Magnific ([magnific.com](https://www.magnific.com/)).
+- **professoraensinando.jpg:** Magnific ([magnific.com](https://www.magnific.com/)).
+- **codigo-do-futuro.jpg:** Magnific ([magnific.com](https://www.magnific.com/)).
+- **conecta-lab.jpg:** Magnific ([magnific.com](https://www.magnific.com/)).
+- **imagem-inclusao-digital.jpg:** informar a origem correspondente.
 
 ### Recursos de terceiros
 
-Não foram utilizadas bibliotecas, frameworks ou dependências externas. Todo o código foi escrito com HTML5, CSS3 e JavaScript nativo.
+Não foram utilizadas bibliotecas, frameworks ou dependências externas. Todo o código foi desenvolvido com HTML5, CSS3 e JavaScript nativo.
